@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership — AfICTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="container-fluid px-4">
+        <div class="row align-items-center">
+          <div class="col-auto me-auto">
+            <span class="topbar-text"
+              ><i class="bi bi-envelope-fill me-1"></i> info@aficta.org</span
+            >
+            <span class="topbar-divider">|</span>
+            <span class="topbar-text"
+              ><i class="bi bi-telephone-fill me-1"></i> +234 803 000 0000</span
+            >
+          </div>
+          <div class="col-auto">
+            <a
+              href="https://twitter.com/AfICTA"
+              class="topbar-social"
+              target="_blank"
+              ><i class="bi bi-twitter-x"></i
+            ></a>
+            <a
+              href="https://web.facebook.com/AfICTA"
+              class="topbar-social"
+              target="_blank"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/aficta"
+              class="topbar-social"
+              target="_blank"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/channel/UC-5hDUq5tHmHW9QMSDSPnlw"
+              class="topbar-social"
+              target="_blank"
+              ><i class="bi bi-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+      id="mainNav"
+    >
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="https://aficta.africa/images/AfICTA-Logo-2017.png"
+            alt="AfICTA"
+            height="70"
+            width="70"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <span class="brand-fallback" style="display: none"
+            ><span class="brand-icon"><i class="bi bi-globe-africa"></i></span
+            ><span class="brand-text">Af<span>ICTA</span></span></span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >About Us</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="about.html">About AfICTA</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="about.html#constitution"
+                    >AfICTA Constitution</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="about.html#board"
+                    >AfICTA Board</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="about.html#advisory"
+                    >Advisory Council</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="about.html#awards"
+                    >Award Winners</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Membership</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="membership.html#login"
+                    >Login</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="membership.html#join"
+                    >Join AfICTA</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="membership.html#nations"
+                    >Our Member Nations</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="membership.html#benefits"
+                    >Benefits</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="membership.html#pay"
+                    >Pay Online</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Summits</a
+              >
+              <ul class="dropdown-menu dropdown-menu-wide">
+                <li>
+                  <a class="dropdown-item" href="summits.html#2025"
+                    >Summit 2025</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="summits.html#2024"
+                    >Summit 2024</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="summits.html#2023"
+                    >Summit 2023</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="summits.html#host"
+                    >Host a Summit</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Events</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="events.html#calendar"
+                    >Calendar of Events</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="events.html">Past Events</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Webinars</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="webinars.html#17th"
+                    >17th Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="webinars.html#archive"
+                    >View All</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >News</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="news.html#newsletter"
+                    >Fortnight Newsletter</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="news.html#articles"
+                    >News Articles</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="membership.html#join">Join Us</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://aficta.africa/info-hub/"
+                target="_blank"
+                >Digital Hub</a
+              >
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-gold" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container px-4">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Membership</li>
+          </ol>
+        </nav>
+        <h1 class="page-hero-title">Join the AfICTA Network</h1>
+        <p class="page-hero-sub">
+          Become part of Africa's leading ICT alliance and gain access to a
+          continental network of innovators, policymakers, and industry leaders.
+        </p>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP TIERS -->
+    <section class="content-section" id="join">
+      <div class="container px-4">
+        <div class="text-center mb-5">
+          <span class="section-eyebrow">Membership Categories</span>
+          <h2 class="section-title">Choose Your Membership Tier</h2>
+          <p class="section-body mx-auto" style="max-width: 580px">
+            AfICTA offers flexible membership categories to accommodate national
+            ICT associations, private sector companies, and individual
+            professionals.
+          </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-4 col-md-6">
+            <div class="membership-tier h-100">
+              <div class="tier-header" style="background: var(--gray-100)">
+                <div class="tier-icon"><i class="bi bi-building"></i></div>
+                <h5>National Association</h5>
+                <div class="tier-price">USD 2,000 <span>/year</span></div>
+              </div>
+              <div class="tier-body">
+                <ul class="benefit-list">
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Full voting rights at AfICTA General Assembly</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Seat on regional standing committees</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Access to all summits and webinars</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Representation in global forums</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Fortnightly newsletter and resources</span>
+                  </li>
+                </ul>
+                <a href="#join-form" class="btn btn-outline-green w-100 mt-3"
+                  >Apply Now</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="membership-tier h-100 featured-tier">
+              <div class="tier-badge">Most Popular</div>
+              <div class="tier-header" style="background: var(--green-primary)">
+                <div class="tier-icon">
+                  <i class="bi bi-briefcase-fill"></i>
+                </div>
+                <h5 style="color: white">Corporate Member</h5>
+                <div class="tier-price" style="color: var(--gold)">
+                  USD 1,000
+                  <span style="color: rgba(255, 255, 255, 0.7)">/year</span>
+                </div>
+              </div>
+              <div class="tier-body">
+                <ul class="benefit-list">
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Brand visibility across AfICTA platforms</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Discounted summit participation</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Access to AfICTA member directory</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Participation in AfICTA webinars</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Digital Hub access and profile listing</span>
+                  </li>
+                </ul>
+                <a href="#join-form" class="btn btn-green w-100 mt-3"
+                  >Apply Now</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="membership-tier h-100">
+              <div class="tier-header" style="background: var(--gold-light)">
+                <div
+                  class="tier-icon"
+                  style="color: var(--gold); background: white"
+                >
+                  <i class="bi bi-person-fill"></i>
+                </div>
+                <h5>Individual / Academic</h5>
+                <div class="tier-price" style="color: var(--gold)">
+                  USD 250 <span>/year</span>
+                </div>
+              </div>
+              <div class="tier-body">
+                <ul class="benefit-list">
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>AfICTA membership certificate</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Webinar participation and recordings</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Access to AfICTA publications</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Networking with ICT professionals</span>
+                  </li>
+                  <li>
+                    <i class="bi bi-check-circle-fill"></i
+                    ><span>Discounted event rates</span>
+                  </li>
+                </ul>
+                <a href="#join-form" class="btn btn-outline-green w-100 mt-3"
+                  >Apply Now</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP BENEFITS -->
+    <section class="content-section bg-light-green" id="benefits">
+      <div class="container px-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <span class="section-eyebrow">Why Join</span>
+            <h2 class="section-title mb-4">Membership Benefits</h2>
+            <p class="section-body">
+              AfICTA membership connects you to a powerful network shaping
+              Africa's digital future. From policy influence to brand
+              visibility, membership delivers real value.
+            </p>
+            <a href="#join-form" class="btn btn-green mt-2"
+              >Join AfICTA Today</a
+            >
+          </div>
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="feature-card">
+                  <div class="card-icon"><i class="bi bi-globe2"></i></div>
+                  <h5>Global Representation</h5>
+                  <p>
+                    Your interests represented at WSIS, IGF, ITU, and AU digital
+                    economy forums.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="feature-card">
+                  <div class="card-icon">
+                    <i class="bi bi-diagram-3-fill"></i>
+                  </div>
+                  <h5>Network Access</h5>
+                  <p>
+                    Direct connections to ICT leaders, government officials, and
+                    investors across 54 nations.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="feature-card">
+                  <div class="card-icon">
+                    <i class="bi bi-bar-chart-fill"></i>
+                  </div>
+                  <h5>Market Intelligence</h5>
+                  <p>
+                    Exclusive reports, policy analyses, and ICT sector research
+                    delivered regularly.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="feature-card">
+                  <div class="card-icon"><i class="bi bi-trophy-fill"></i></div>
+                  <h5>Awards & Recognition</h5>
+                  <p>
+                    Eligibility for AfICTA Excellence Awards and opportunities
+                    to showcase your work.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN FORM -->
+    <section class="content-section" id="join-form">
+      <div class="container px-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="text-center mb-5">
+              <span class="section-eyebrow">Get Started</span>
+              <h2 class="section-title">Membership Application</h2>
+            </div>
+            <div class="contact-form-box">
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Organisation / Full Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Your organisation or name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Country</label>
+                    <select class="form-select">
+                      <option value="">Select country...</option>
+                      <option>Nigeria</option>
+                      <option>Kenya</option>
+                      <option>South Africa</option>
+                      <option>Ghana</option>
+                      <option>Egypt</option>
+                      <option>Ethiopia</option>
+                      <option>Other African Country</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Email Address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="contact@organisation.com"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Phone Number</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      placeholder="+234 xxx xxx xxxx"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Membership Category</label>
+                    <select class="form-select">
+                      <option value="">Select membership type...</option>
+                      <option>National ICT Association (USD 2,000/year)</option>
+                      <option>Corporate Member (USD 1,000/year)</option>
+                      <option>Individual / Academic (USD 250/year)</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Organisation Website</label>
+                    <input
+                      type="url"
+                      class="form-control"
+                      placeholder="https://www.yourorganisation.com"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label"
+                      >Brief Description of Your Organisation</label
+                    >
+                    <textarea
+                      class="form-control"
+                      rows="4"
+                      placeholder="Tell us about your organisation and why you want to join AfICTA..."
+                    ></textarea>
+                  </div>
+                  <div class="col-12 mt-2">
+                    <button type="submit" class="btn btn-green btn-lg w-100">
+                      Submit Application <i class="bi bi-send ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBER NATIONS -->
+    <section class="content-section bg-light-green" id="nations">
+      <div class="container px-4">
+        <div class="text-center mb-5">
+          <span class="section-eyebrow">Our Reach</span>
+          <h2 class="section-title">Current Member Nations</h2>
+          <p class="section-body mx-auto" style="max-width: 580px">
+            AfICTA currently has active members from across the African
+            continent, spanning all five regional blocs.
+          </p>
+        </div>
+        <div class="row g-3">
+          <div class="col-12 mb-2">
+            <h6
+              style="
+                color: var(--green-primary);
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+              "
+            >
+              West Africa
+            </h6>
+            <div>
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Nigeria</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Ghana</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Senegal</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Côte d'Ivoire</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Togo</span
+              >
+            </div>
+          </div>
+          <div class="col-12 mb-2">
+            <h6
+              style="
+                color: var(--green-primary);
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+              "
+            >
+              East Africa
+            </h6>
+            <div>
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Kenya</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Tanzania</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Uganda</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Rwanda</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Ethiopia</span
+              >
+            </div>
+          </div>
+          <div class="col-12 mb-2">
+            <h6
+              style="
+                color: var(--green-primary);
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+              "
+            >
+              Southern Africa
+            </h6>
+            <div>
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> South Africa</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Zimbabwe</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Zambia</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Namibia</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Botswana</span
+              >
+            </div>
+          </div>
+          <div class="col-12 mb-2">
+            <h6
+              style="
+                color: var(--green-primary);
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+              "
+            >
+              North Africa
+            </h6>
+            <div>
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Egypt</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Morocco</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Tunisia</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Algeria</span
+              >
+            </div>
+          </div>
+          <div class="col-12">
+            <h6
+              style="
+                color: var(--green-primary);
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+              "
+            >
+              Central Africa
+            </h6>
+            <div>
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Cameroon</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> DR Congo</span
+              >
+              <span class="nation-badge"
+                ><i class="bi bi-geo-alt-fill"></i> Gabon</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAY ONLINE -->
+    <section class="content-section" id="pay">
+      <div class="container px-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-7 text-center">
+            <span class="section-eyebrow">Payment</span>
+            <h2 class="section-title mb-4">Pay Your Membership Dues Online</h2>
+            <p class="section-body mb-4">
+              Renew your membership or complete your first payment securely
+              online. Contact us for bank transfer details or alternative
+              payment arrangements.
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <a href="#" class="btn btn-green btn-lg"
+                ><i class="bi bi-credit-card-fill me-2"></i>Pay Online Now</a
+              >
+              <a href="contact.html" class="btn btn-outline-green btn-lg"
+                ><i class="bi bi-envelope me-2"></i>Bank Transfer Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBER LOGIN -->
+    <section class="content-section bg-light-green" id="login">
+      <div class="container px-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="contact-form-box text-center">
+              <div
+                style="
+                  font-size: 3rem;
+                  color: var(--green-primary);
+                  margin-bottom: 1rem;
+                "
+              >
+                <i class="bi bi-person-lock"></i>
+              </div>
+              <h4 style="color: var(--green-dark)">Member Login</h4>
+              <p class="section-body mb-4">
+                Access the AfICTA member portal for exclusive resources, member
+                directories, and governance documents.
+              </p>
+              <form>
+                <div class="mb-3 text-start">
+                  <label class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div class="mb-3 text-start">
+                  <label class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="••••••••"
+                  />
+                </div>
+                <button type="submit" class="btn btn-green w-100 mb-3">
+                  Login to Member Portal
+                </button>
+                <a
+                  href="#"
+                  style="font-size: 0.85rem; color: var(--green-primary)"
+                  >Forgot your password?</a
+                >
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container px-4 py-5">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-brand mb-3">
+              <span class="footer-logo-text">Af<span>ICTA</span></span>
+            </div>
+            <p class="footer-about">
+              The Africa Information & Communication Technologies Alliance is a
+              continental body championing Africa's digital transformation and
+              ICT policy advocacy.
+            </p>
+            <div class="footer-socials mt-3">
+              <a href="https://twitter.com/AfICTA" target="_blank"
+                ><i class="bi bi-twitter-x"></i
+              ></a>
+              <a href="https://web.facebook.com/AfICTA" target="_blank"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="https://www.linkedin.com/company/aficta" target="_blank"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UC-5hDUq5tHmHW9QMSDSPnlw"
+                target="_blank"
+                ><i class="bi bi-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h6 class="footer-heading">Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="about.html">About AfICTA</a></li>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="news.html">News & Media</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-6">
+            <h6 class="footer-heading">Summits & Events</h6>
+            <ul class="footer-links">
+              <li><a href="summits.html#2025">Summit 2025</a></li>
+              <li><a href="webinars.html">Quarterly Webinars</a></li>
+              <li><a href="events.html">Events Calendar</a></li>
+              <li><a href="summits.html#host">Host a Summit</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h6 class="footer-heading">Contact</h6>
+            <ul class="footer-contact">
+              <li><i class="bi bi-envelope-fill"></i> info@aficta.org</li>
+              <li><i class="bi bi-globe2"></i> www.aficta.africa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container px-4">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0">&copy; 2026 AfICTA. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+              <a href="#">Privacy Policy</a><span class="mx-2">|</span
+              ><a href="#">Terms of Use</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .membership-tier {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+      }
+      .tier-header {
+        padding: 2rem 1.5rem;
+        text-align: center;
+      }
+      .tier-icon {
+        font-size: 2rem;
+        color: var(--green-primary);
+        margin-bottom: 0.5rem;
+      }
+      .tier-header h5 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--green-dark);
+      }
+      .tier-price {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--green-primary);
+      }
+      .tier-price span {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--gray-600);
+      }
+      .tier-body {
+        background: white;
+        padding: 1.5rem;
+      }
+      .featured-tier {
+        box-shadow: 0 8px 32px rgba(26, 92, 56, 0.2);
+        transform: scale(1.02);
+      }
+      .tier-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--gold);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+      }
+    </style>
+
+    <button id="backToTop" aria-label="Back to top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/main.js"></script>
+  </body>
+</html>

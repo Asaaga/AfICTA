@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events — AfICTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="container-fluid px-4">
+        <div class="row align-items-center">
+          <div class="col-auto me-auto">
+            <span class="topbar-text"
+              ><i class="bi bi-envelope-fill me-1"></i> info@aficta.org</span
+            >
+            <span class="topbar-divider">|</span>
+            <span class="topbar-text"
+              ><i class="bi bi-telephone-fill me-1"></i> +234 803 000 0000</span
+            >
+          </div>
+          <div class="col-auto">
+            <a
+              href="https://twitter.com/AfICTA"
+              class="topbar-social"
+              target="_blank"
+              ><i class="bi bi-twitter-x"></i
+            ></a>
+            <a
+              href="https://web.facebook.com/AfICTA"
+              class="topbar-social"
+              target="_blank"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/aficta"
+              target="_blank"
+              class="topbar-social"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/channel/UC-5hDUq5tHmHW9QMSDSPnlw"
+              target="_blank"
+              class="topbar-social"
+              ><i class="bi bi-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+      id="mainNav"
+    >
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="https://aficta.africa/images/AfICTA-Logo-2017.png"
+            alt="AfICTA"
+            height="70"
+            width="70"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <span class="brand-fallback" style="display: none"
+            ><span class="brand-icon"><i class="bi bi-globe-africa"></i></span
+            ><span class="brand-text">Af<span>ICTA</span></span></span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >About Us</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="about.html">About AfICTA</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="about.html#board"
+                    >AfICTA Board</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="about.html#advisory"
+                    >Advisory Council</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="about.html#awards"
+                    >Award Winners</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Membership</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="membership.html#join"
+                    >Join AfICTA</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="membership.html#benefits"
+                    >Benefits</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="membership.html#pay"
+                    >Pay Online</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Summits</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="summits.html#2025"
+                    >Summit 2025</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="summits.html#host"
+                    >Host a Summit</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Events</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#calendar"
+                    >Calendar of Events</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#igf2025"
+                    >AfICTA-SIDI IGF WS 2025</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#wsis2026"
+                    >AfICTA WSIS+20 HL Session</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#igf2023"
+                    >AfICTA-IGF Workshop 2023</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#igf2021"
+                    >AfICTA-IGF Workshop 2021</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#igf2020"
+                    >AfICTA-IGF Workshop 2020</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Webinars</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="webinars.html#17th"
+                    >17th Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="webinars.html#archive"
+                    >View All</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >News</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="news.html#newsletter"
+                    >Fortnight Newsletter</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="news.html#articles"
+                    >News Articles</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="membership.html#join">Join Us</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://aficta.africa/info-hub/"
+                target="_blank"
+                >Digital Hub</a
+              >
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-gold" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container px-4">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Events</li>
+          </ol>
+        </nav>
+        <h1 class="page-hero-title">Events & Workshops</h1>
+        <p class="page-hero-sub">
+          AfICTA actively participates in and organises major ICT governance
+          events across Africa and globally.
+        </p>
+      </div>
+    </section>
+
+    <!-- UPCOMING EVENTS -->
+    <section class="content-section" id="calendar">
+      <div class="container px-4">
+        <div
+          class="section-header d-flex align-items-end justify-content-between mb-5"
+        >
+          <div>
+            <span class="section-eyebrow">What's Coming</span>
+            <h2 class="section-title">Upcoming Events — 2026</h2>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="event-card" style="padding: 1.5rem">
+              <div
+                class="event-date-box"
+                style="padding: 1rem 1.2rem; min-width: 80px"
+              >
+                <span class="event-month">SEP</span>
+                <span class="event-day">18</span>
+                <span class="event-year">2026</span>
+              </div>
+              <div class="event-details flex-grow-1">
+                <div
+                  class="d-flex flex-wrap align-items-start justify-content-between gap-2"
+                >
+                  <div>
+                    <span class="event-type">Webinar</span>
+                    <h5 class="event-title mb-1">
+                      18th Quarterly Regional eConference
+                    </h5>
+                    <p class="event-location mb-1">
+                      <i class="bi bi-camera-video-fill me-1"></i> Virtual —
+                      Zoom
+                    </p>
+                    <p
+                      style="
+                        font-size: 0.82rem;
+                        color: var(--gray-600);
+                        margin: 0;
+                      "
+                    >
+                      AfICTA's quarterly platform for digital dialogue across
+                      Africa's ICT stakeholder community.
+                    </p>
+                  </div>
+                  <a
+                    href="webinars.html"
+                    class="btn btn-outline-green btn-sm flex-shrink-0"
+                    >Register</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="event-card" style="padding: 1.5rem">
+              <div
+                class="event-date-box"
+                style="padding: 1rem 1.2rem; min-width: 80px"
+              >
+                <span class="event-month">NOV</span>
+                <span class="event-day">12</span>
+                <span class="event-year">2026</span>
+              </div>
+              <div class="event-details flex-grow-1">
+                <div
+                  class="d-flex flex-wrap align-items-start justify-content-between gap-2"
+                >
+                  <div>
+                    <span class="event-type">Annual Summit</span>
+                    <h5 class="event-title mb-1">14th AfICTA Annual Summit</h5>
+                    <p class="event-location mb-1">
+                      <i class="bi bi-geo-alt-fill me-1"></i> Nairobi, Kenya
+                    </p>
+                    <p
+                      style="
+                        font-size: 0.82rem;
+                        color: var(--gray-600);
+                        margin: 0;
+                      "
+                    >
+                      The continent's premier annual gathering of ICT leaders,
+                      policymakers, and innovators.
+                    </p>
+                  </div>
+                  <a
+                    href="summits.html"
+                    class="btn btn-green btn-sm flex-shrink-0"
+                    >Register</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="event-card" style="padding: 1.5rem">
+              <div
+                class="event-date-box"
+                style="padding: 1rem 1.2rem; min-width: 80px"
+              >
+                <span class="event-month">DEC</span>
+                <span class="event-day">08</span>
+                <span class="event-year">2026</span>
+              </div>
+              <div class="event-details flex-grow-1">
+                <div
+                  class="d-flex flex-wrap align-items-start justify-content-between gap-2"
+                >
+                  <div>
+                    <span class="event-type">IGF Workshop</span>
+                    <h5 class="event-title mb-1">AfICTA-IGF Workshop 2026</h5>
+                    <p class="event-location mb-1">
+                      <i class="bi bi-geo-alt-fill me-1"></i> Nairobi, Kenya
+                      (IGF 2026)
+                    </p>
+                    <p
+                      style="
+                        font-size: 0.82rem;
+                        color: var(--gray-600);
+                        margin: 0;
+                      "
+                    >
+                      AfICTA's dedicated session at the UN Internet Governance
+                      Forum — Nairobi edition.
+                    </p>
+                  </div>
+                  <a
+                    href="contact.html"
+                    class="btn btn-outline-green btn-sm flex-shrink-0"
+                    >Enquire</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAST EVENTS / IGF WORKSHOPS -->
+    <section class="content-section bg-light-green">
+      <div class="container px-4">
+        <div class="text-center mb-5">
+          <span class="section-eyebrow">Past Engagements</span>
+          <h2 class="section-title">AfICTA at Global Forums</h2>
+        </div>
+        <div class="row g-3">
+          <div class="col-lg-6" id="igf2025">
+            <div class="archive-card">
+              <div class="archive-year">25</div>
+              <div class="archive-content">
+                <span class="event-type">IGF Workshop</span>
+                <h6>AfICTA-SIDI IGF Workshop 2025</h6>
+                <p>
+                  Session on Sovereignty and Interoperable Digital Identity in
+                  DLDCs — exploring frameworks for digital identity governance
+                  across developing nations.
+                </p>
+                <div class="archive-links">
+                  <a href="#"
+                    ><i class="bi bi-file-earmark-pdf me-1"></i> Session
+                    Report</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" id="wsis2026">
+            <div class="archive-card">
+              <div class="archive-year">26</div>
+              <div class="archive-content">
+                <span class="event-type">WSIS Forum</span>
+                <h6>AfICTA WSIS+20 High-Level Session 2026</h6>
+                <p>
+                  AfICTA co-led a High-Level Session at the WSIS Forum in Geneva
+                  in partnership with NITDA Nigeria, advancing Africa's digital
+                  economy agenda.
+                </p>
+                <div class="archive-links">
+                  <a href="#"
+                    ><i class="bi bi-file-earmark-pdf me-1"></i> Session
+                    Report</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" id="igf2023">
+            <div class="archive-card">
+              <div class="archive-year">23</div>
+              <div class="archive-content">
+                <span class="event-type">IGF Workshop</span>
+                <h6>AfICTA-IGF Workshop 2023</h6>
+                <p>
+                  WS #311: Global Digital Value Chain — Africa's Status and Way
+                  Forward. A critical dialogue on Africa's position in emerging
+                  global value chains.
+                </p>
+                <div class="archive-links">
+                  <a href="#"
+                    ><i class="bi bi-file-earmark-pdf me-1"></i> Report</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" id="igf2021">
+            <div class="archive-card">
+              <div class="archive-year">21</div>
+              <div class="archive-content">
+                <span class="event-type">IGF Workshop</span>
+                <h6>AfICTA-IGF Workshop 2021 — Poland</h6>
+                <p>
+                  AfICTA's session at IGF 2021 in Katowice, Poland addressed
+                  digital rights, access, and governance in the post-pandemic
+                  digital landscape.
+                </p>
+                <div class="archive-links">
+                  <a href="#"
+                    ><i class="bi bi-file-earmark-pdf me-1"></i> Full Report</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" id="igf2020">
+            <div class="archive-card">
+              <div class="archive-year">20</div>
+              <div class="archive-content">
+                <span class="event-type">Virtual Workshop</span>
+                <h6>AfICTA-vAfIGF Workshop 2020</h6>
+                <p>
+                  Conducted virtually during the pandemic, this workshop
+                  advanced critical discussions on Africa's internet governance
+                  priorities.
+                </p>
+                <div class="archive-links">
+                  <a href="#"
+                    ><i class="bi bi-file-earmark-pdf me-1"></i> Report</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="archive-card">
+              <div class="archive-year">21</div>
+              <div class="archive-content">
+                <span class="event-type">Regional IGF</span>
+                <h6>AfICTA-WAIGF Workshop 2021</h6>
+                <p>
+                  West Africa Internet Governance Forum engagement — advancing
+                  regional digital policy and cross-border data governance
+                  frameworks.
+                </p>
+                <div class="archive-links">
+                  <a href="#"
+                    ><i class="bi bi-file-earmark-pdf me-1"></i> Report</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container px-4 py-5">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-brand mb-3">
+              <span class="footer-logo-text">Af<span>ICTA</span></span>
+            </div>
+            <p class="footer-about">
+              The Africa Information & Communication Technologies Alliance
+              champions Africa's digital transformation and ICT policy advocacy.
+            </p>
+            <div class="footer-socials mt-3">
+              <a href="https://twitter.com/AfICTA" target="_blank"
+                ><i class="bi bi-twitter-x"></i
+              ></a>
+              <a href="https://web.facebook.com/AfICTA" target="_blank"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="https://www.linkedin.com/company/aficta" target="_blank"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UC-5hDUq5tHmHW9QMSDSPnlw"
+                target="_blank"
+                ><i class="bi bi-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 col-6">
+            <h6 class="footer-heading">Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="about.html">About AfICTA</a></li>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="news.html">News</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-6">
+            <h6 class="footer-heading">Summits & Events</h6>
+            <ul class="footer-links">
+              <li><a href="summits.html#2025">Summit 2025</a></li>
+              <li><a href="webinars.html">Quarterly Webinars</a></li>
+              <li><a href="#calendar">Events Calendar</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h6 class="footer-heading">Contact</h6>
+            <ul class="footer-contact">
+              <li><i class="bi bi-envelope-fill"></i> info@aficta.org</li>
+              <li><i class="bi bi-globe2"></i> www.aficta.africa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container px-4">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0">&copy; 2026 AfICTA. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+              <a href="#">Privacy Policy</a><span class="mx-2">|</span
+              ><a href="#">Terms of Use</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <button id="backToTop" aria-label="Back to top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/main.js"></script>
+  </body>
+</html>
