@@ -3,7 +3,7 @@
   --green-primary: #16224f;
   --green-medium: #1e2f6b;
   --green-light: #eef1fa;
-  --gold: #aa6300c5;
+  --gold: #c18b3fc5;
   --gold-light: #f5e6c2;
   --silver: #aab4c8;
   --white: #ffffff;
@@ -331,6 +331,7 @@ img {
     height: 420px;
   }
 }
+
 .hero-overlay {
   position: absolute;
   inset: 0;
