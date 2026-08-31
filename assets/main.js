@@ -41,13 +41,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const videoCards = document.querySelectorAll(".video-card-item");
 
   videoCards.forEach((card) => {
+    const videoId = card.getAttribute("data-video-id");
+    const titleEl = card.querySelector(".video-title");
+    const authorEl = card.querySelector(".video-author");
+
+    if (videoId) {
+      // Fetch metadata dynamically via YouTube oEmbed API
+      const oEmbedUrl = `https://noembed.com/embed?url=https://www.youtube.com/watch?v=${videoId}`;
+
+      fetch(oEmbedUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.title && titleEl) {
+            titleEl.textContent = data.title;
+          }
+          if (data.author_name && authorEl) {
+            authorEl.textContent = `By ${data.author_name}`;
+          }
+        })
+        .catch((err) => {
+          console.error("Error fetching YouTube info:", err);
+        });
+    }
+
+    // Click listener to switch video in the main player
     card.addEventListener("click", function () {
-      const videoId = this.getAttribute("data-video-id");
       if (videoId && mainPlayer) {
-        // Update main player embed URL and trigger autoplay on selection
         mainPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
 
-        // Update active card styling border
         videoCards.forEach((c) => c.classList.remove("active-video"));
         this.classList.add("active-video");
       }
