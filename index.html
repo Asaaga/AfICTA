@@ -1076,10 +1076,10 @@
     <section class="section-media-gallery py-5 bg-light-green">
       <div class="container px-4">
         <div class="row g-4 align-items-stretch">
-          <!-- Left Column: Main Video Player -->
+          <!-- Left Column: Main Featured Video Player -->
           <div class="col-lg-7">
             <div
-              class="ratio ratio-16x9 rounded overflow-hidden shadow-sm h-100"
+              class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm h-100 border bg-dark"
             >
               <iframe
                 id="mainVideoPlayer"
@@ -1099,21 +1099,36 @@
             </div>
           </div>
 
-          <!-- Right Column: Interactive Video List (3 visible at once) -->
+          <!-- Right Column: Framed Sidebar Container -->
           <div class="col-lg-5">
-            <div class="cards-scroll-containerpe p-1">
-              <div class="d-flex flex-column gap-3">
-                <!-- Video Item 1 -->
-                <div
-                  class="card border-0 shadow-sm p-2 video-card-item active-video"
-                  data-video-id="PLrUwymqrmw"
+            <div
+              class="media-gallery-frame rounded-3 p-3 shadow-sm bg-white border"
+            >
+              <!-- Header -->
+              <div
+                class="d-flex align-items-center justify-content-between pb-2 mb-3 border-bottom"
+              >
+                <h6
+                  class="fw-bold mb-0 text-dark d-flex align-items-center gap-2"
+                  style="font-size: 0.95rem"
                 >
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="position-relative">
+                  <i class="bi bi-collection-play-fill text-success"></i>
+                  Watch videos from our latest programs
+                </h6>
+              </div>
+
+              <!-- Scrollable Video List -->
+              <div class="cards-scroll-containerpe pe-1">
+                <div class="d-flex flex-column gap-3">
+                  <!-- Video Item 1 -->
+                  <div
+                    class="video-card-item rounded-3 overflow-hidden active-video"
+                    data-video-id="PLrUwymqrmw"
+                  >
+                    <div class="ratio ratio-16x9">
                       <iframe
-                        id="mainVideoPlayer"
-                        src="https://www.youtube.com/embed/EGlqizYUzPs?autoplay=0&rel=0"
-                        title="AfICTA Featured Video"
+                        src="https://www.youtube.com/embed/PLrUwymqrmw?rel=0"
+                        title="AfICTA Program Video 1"
                         allow="
                           accelerometer;
                           autoplay;
@@ -1125,30 +1140,18 @@
                         allowfullscreen
                       >
                       </iframe>
-                    </div>
-                    <div>
-                      <h6
-                        class="mb-1 fw-bold text-dark video-title"
-                        style="font-size: 0.95rem"
-                      >
-                        Loading title...
-                      </h6>
-                      <small class="text-muted video-author">AfICTA</small>
                     </div>
                   </div>
-                </div>
 
-                <!-- Video Item 2 -->
-                <div
-                  class="card border-0 shadow-sm p-2 video-card-item"
-                  data-video-id="aPdcNfLUmWc"
-                >
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="position-relative">
+                  <!-- Video Item 2 -->
+                  <div
+                    class="video-card-item rounded-3 overflow-hidden"
+                    data-video-id="aPdcNfLUmWc"
+                  >
+                    <div class="ratio ratio-16x9">
                       <iframe
-                        id="mainVideoPlayer"
-                        src="https://www.youtube.com/embed/aPdcNfLUmWc?autoplay=0&rel=0"
-                        title="AfICTA Featured Video"
+                        src="https://www.youtube.com/embed/aPdcNfLUmWc?rel=0"
+                        title="AfICTA Program Video 2"
                         allow="
                           accelerometer;
                           autoplay;
@@ -1160,29 +1163,18 @@
                         allowfullscreen
                       >
                       </iframe>
-                    </div>
-                    <div>
-                      <h6
-                        class="mb-1 fw-bold text-dark video-title"
-                        style="font-size: 0.95rem"
-                      >
-                        Loading title...
-                      </h6>
-                      <small class="text-muted video-author">AfICTA</small>
                     </div>
                   </div>
-                </div>
 
-                <div
-                  class="card border-0 shadow-sm p-2 video-card-item active-video"
-                  data-video-id="PLrUwymqrmw"
-                >
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="position-relative">
+                  <!-- Video Item 3 -->
+                  <div
+                    class="video-card-item rounded-3 overflow-hidden"
+                    data-video-id="EGlqizYUzPs"
+                  >
+                    <div class="ratio ratio-16x9">
                       <iframe
-                        id="mainVideoPlayer"
-                        src="https://www.youtube.com/embed/EGlqizYUzPs?autoplay=0&rel=0"
-                        title="AfICTA Featured Video"
+                        src="https://www.youtube.com/embed/EGlqizYUzPs?rel=0"
+                        title="AfICTA Program Video 3"
                         allow="
                           accelerometer;
                           autoplay;
@@ -1194,49 +1186,6 @@
                         allowfullscreen
                       >
                       </iframe>
-                    </div>
-                    <div>
-                      <h6
-                        class="mb-1 fw-bold text-dark video-title"
-                        style="font-size: 0.95rem"
-                      >
-                        Loading title...
-                      </h6>
-                      <small class="text-muted video-author">AfICTA</small>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="card border-0 shadow-sm p-2 video-card-item"
-                  data-video-id="aPdcNfLUmWc"
-                >
-                  <div class="d-flex align-items-center gap-3">
-                    <div class="position-relative">
-                      <iframe
-                        id="mainVideoPlayer"
-                        src="https://www.youtube.com/embed/aPdcNfLUmWc?autoplay=0&rel=0"
-                        title="AfICTA Featured Video"
-                        allow="
-                          accelerometer;
-                          autoplay;
-                          clipboard-write;
-                          encrypted-media;
-                          gyroscope;
-                          picture-in-picture;
-                        "
-                        allowfullscreen
-                      >
-                      </iframe>
-                    </div>
-                    <div>
-                      <h6
-                        class="mb-1 fw-bold text-dark video-title"
-                        style="font-size: 0.95rem"
-                      >
-                        Loading title...
-                      </h6>
-                      <small class="text-muted video-author">AfICTA</small>
                     </div>
                   </div>
                 </div>

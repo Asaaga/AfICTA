@@ -566,14 +566,6 @@ img {
 .video-card-item {
   transition: all 0.2s ease;
   cursor: pointer;
-  border-left: 4px solid transparent !important;
-}
-
-.video-card-item:hover,
-.video-card-item.active-video {
-  border-left-color: var(--gold) !important;
-  background-color: var(--white);
-  transform: translateX(3px);
 }
 
 .play-icon-overlay {
@@ -585,11 +577,6 @@ img {
   color: rgba(255, 255, 255, 0.9);
   pointer-events: none;
   transition: transform 0.2s ease;
-}
-
-.video-card-item:hover .play-icon-overlay {
-  transform: translate(-50%, -50%) scale(1.15);
-  color: var(--gold);
 }
 
 /* Custom internal styling for scrollbars within feed components */
