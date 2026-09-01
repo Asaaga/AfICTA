@@ -1,0 +1,1723 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Articles — AfICTA Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+    <link href="../assets/dash.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="sidebar-overlay"></div>
+    <div class="dash-shell">
+      <!-- ═══════════════════════════════════════
+       SIDEBAR
+  ═══════════════════════════════════════ -->
+      <aside class="sidebar">
+        <a href="index.html" class="sidebar-brand">
+          <div>
+            <div class="sidebar-brand-logo">Af<span>ICTA</span></div>
+            <span class="sidebar-brand-sub">Admin Panel</span>
+          </div>
+        </a>
+        <nav class="sidebar-nav">
+          <div class="nav-section-label">Main</div>
+          <a class="sidebar-link" href="index.html"
+            ><i class="bi bi-speedometer2"></i> Dashboard</a
+          >
+
+          <div class="nav-section-label">Content</div>
+          <a class="sidebar-link active" href="news.html"
+            ><i class="bi bi-newspaper"></i> News Articles</a
+          >
+          <a class="sidebar-link" href="newsletters.html"
+            ><i class="bi bi-envelope-paper"></i> Newsletters</a
+          >
+          <a class="sidebar-link" href="slider.html"
+            ><i class="bi bi-images"></i> Hero Slider</a
+          >
+
+          <div class="nav-section-label">Events &amp; Activities</div>
+          <a class="sidebar-link" href="summits.html"
+            ><i class="bi bi-trophy"></i> Summits</a
+          >
+          <a class="sidebar-link" href="events.html"
+            ><i class="bi bi-calendar-event"></i> Events</a
+          >
+          <a class="sidebar-link" href="webinars.html"
+            ><i class="bi bi-camera-video"></i> Webinars</a
+          >
+
+          <div class="nav-section-label">Membership</div>
+          <a class="sidebar-link" href="members.html"
+            ><i class="bi bi-people"></i> Members
+            <span class="badge-count">3</span></a
+          >
+          <a class="sidebar-link" href="governance.html"
+            ><i class="bi bi-person-badge"></i> Governance</a
+          >
+
+          <div class="nav-section-label">System</div>
+          <a class="sidebar-link" href="messages.html"
+            ><i class="bi bi-chat-dots"></i> Messages
+            <span class="badge-count">5</span></a
+          >
+          <a class="sidebar-link" href="settings.html"
+            ><i class="bi bi-gear"></i> Settings</a
+          >
+        </nav>
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div>
+              <div class="sidebar-user-name">Admin User</div>
+              <div class="sidebar-user-role">Super Admin</div>
+            </div>
+            <a href="login.html" class="sidebar-user-logout" title="Logout"
+              ><i class="bi bi-box-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ═══════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════ -->
+      <div class="main-content">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <button class="topbar-toggle"><i class="bi bi-list"></i></button>
+          <div class="topbar-breadcrumb">
+            Content <span>/ News Articles</span>
+          </div>
+          <div class="topbar-actions">
+            <button class="topbar-btn" title="Notifications">
+              <i class="bi bi-bell"></i><span class="topbar-notif-dot"></span>
+            </button>
+            <a
+              href="../index.html"
+              class="topbar-btn"
+              title="View Website"
+              target="_blank"
+              ><i class="bi bi-box-arrow-up-right"></i
+            ></a>
+            <div class="topbar-user">
+              <div class="topbar-user-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <span class="topbar-user-name d-none d-md-block">Admin</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="page-content">
+          <!-- Page Header -->
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">News Articles</h1>
+              <p class="page-subtitle">
+                Create, manage, and publish news content for the AfICTA website.
+              </p>
+            </div>
+            <button
+              class="btn-green d-flex align-items-center gap-2"
+              data-bs-toggle="modal"
+              data-bs-target="#addNewsModal"
+            >
+              <i class="bi bi-plus-lg"></i> Add New Article
+            </button>
+          </div>
+
+          <!-- Success Alert (visible for demo) -->
+          <div
+            class="alert alert-success alert-dismissible d-flex align-items-center gap-2 mb-3"
+            role="alert"
+            id="successAlert"
+          >
+            <i
+              class="bi bi-check-circle-fill"
+              style="font-size: 1.1rem; flex-shrink: 0"
+            ></i>
+            <div>
+              <strong>Success!</strong> Article has been published successfully.
+            </div>
+            <button
+              type="button"
+              class="btn-close ms-auto"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- ── NEWS TABLE CARD ── -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h6 class="dash-card-title">
+                <i class="bi bi-newspaper me-2" style="color: var(--gold)"></i
+                >All Articles
+                <span
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--gray-600);
+                    font-weight: 400;
+                    margin-left: 0.35rem;
+                  "
+                  >(84 total)</span
+                >
+              </h6>
+              <div class="d-flex gap-2 flex-wrap">
+                <button
+                  class="btn-outline-green d-flex align-items-center gap-1"
+                  style="font-size: 0.78rem; padding: 0.3rem 0.85rem"
+                >
+                  <i class="bi bi-download"></i> Export
+                </button>
+              </div>
+            </div>
+            <div class="dash-card-body">
+              <!-- Table Toolbar -->
+              <div class="table-toolbar">
+                <div class="d-flex gap-2 flex-wrap align-items-center">
+                  <div class="table-search">
+                    <i class="bi bi-search"></i>
+                    <input
+                      type="text"
+                      id="newsSearch"
+                      placeholder="Search articles..."
+                    />
+                  </div>
+                  <select
+                    class="form-select"
+                    id="statusFilter"
+                    style="
+                      width: auto;
+                      font-size: 0.85rem;
+                      padding: 0.5rem 2rem 0.5rem 0.9rem;
+                    "
+                  >
+                    <option value="">All Statuses</option>
+                    <option value="Published">Published</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Archived">Archived</option>
+                  </select>
+                  <select
+                    class="form-select"
+                    id="categoryFilter"
+                    style="
+                      width: auto;
+                      font-size: 0.85rem;
+                      padding: 0.5rem 2rem 0.5rem 0.9rem;
+                    "
+                  >
+                    <option value="">All Categories</option>
+                    <option value="AI &amp; Governance">
+                      AI &amp; Governance
+                    </option>
+                    <option value="Digital Policy">Digital Policy</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Internet Governance">
+                      Internet Governance
+                    </option>
+                    <option value="Leadership">Leadership</option>
+                    <option value="Membership &amp; Events">
+                      Membership &amp; Events
+                    </option>
+                  </select>
+                </div>
+                <span
+                  style="font-size: 0.78rem; color: var(--gray-600)"
+                  id="tableCount"
+                  >Showing 10 of 84 articles</span
+                >
+              </div>
+
+              <!-- DataTable -->
+              <div class="table-responsive">
+                <table class="table table-aficta dt-table w-100" id="newsTable">
+                  <thead>
+                    <tr>
+                      <th style="width: 40px">#</th>
+                      <th style="width: 60px">Image</th>
+                      <th>Title</th>
+                      <th>Category</th>
+                      <th>Author</th>
+                      <th>Status</th>
+                      <th>Date Published</th>
+                      <th style="width: 110px">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Row 1 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">1</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/1a5c38/ffffff?text=A1"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          AfICTA Elects New Vice-Chairs at 2025 Annual Summit
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          aficta-elects-new-vice-chairs-2025
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #dcfce7;
+                            color: #15803d;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Leadership</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Dr. Ebenezer Asante</td>
+                      <td>
+                        <span class="badge-status badge-published"
+                          >Published</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem; white-space: nowrap">
+                        14 Aug 2025
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="View Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">2</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/c8961e/ffffff?text=A2"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          AfICTA Calls for Inclusive AI Governance Frameworks
+                          Across Africa
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          aficta-inclusive-ai-governance-frameworks
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #ede9fe;
+                            color: #6d28d9;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >AI &amp; Governance</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Amara Konaté</td>
+                      <td>
+                        <span class="badge-status badge-published"
+                          >Published</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem; white-space: nowrap">
+                        09 Aug 2025
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="View Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">3</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/0d2d1c/c8961e?text=A3"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          New Cybersecurity Guidelines for African Digital
+                          Enterprises
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          cybersecurity-guidelines-african-enterprises
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #fef3c7;
+                            color: #92400e;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Cybersecurity</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Dr. Fatima Al-Rashid</td>
+                      <td>
+                        <span class="badge-status badge-draft">Draft</span>
+                      </td>
+                      <td
+                        style="
+                          font-size: 0.83rem;
+                          white-space: nowrap;
+                          color: var(--gray-600);
+                        "
+                      >
+                        — Not published
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="Preview Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 4 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">4</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/1d4ed8/ffffff?text=A4"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          AfICTA Partners with ITU to Advance Internet
+                          Governance in Africa
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          aficta-itu-partnership-internet-governance
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #dbeafe;
+                            color: #1d4ed8;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Internet Governance</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Dr. Ebenezer Asante</td>
+                      <td>
+                        <span class="badge-status badge-published"
+                          >Published</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem; white-space: nowrap">
+                        28 Jul 2025
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="View Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 5 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">5</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/9d174d/ffffff?text=A5"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          Digital Policy Roundtable: Summary Report and Key
+                          Outcomes
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          digital-policy-roundtable-2025-report
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #fce7f3;
+                            color: #9d174d;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Digital Policy</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Amara Konaté</td>
+                      <td>
+                        <span class="badge-status badge-published"
+                          >Published</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem; white-space: nowrap">
+                        21 Jul 2025
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="View Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 6 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">6</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/1a5c38/ffffff?text=A6"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          AfICTA Youth in ICT Programme Launches in 10 African
+                          Nations
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          aficta-youth-ict-programme-launch-2025
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #dcfce7;
+                            color: #15803d;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Membership &amp; Events</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Grace Mensah-Bonsu</td>
+                      <td>
+                        <span class="badge-status badge-published"
+                          >Published</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem; white-space: nowrap">
+                        15 Jul 2025
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="View Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 7 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">7</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/6d28d9/ffffff?text=A7"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          Bridging the Digital Divide: AfICTA Releases
+                          Continental Connectivity Report
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          aficta-digital-divide-connectivity-report-2025
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #fce7f3;
+                            color: #9d174d;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Digital Policy</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Dr. Fatima Al-Rashid</td>
+                      <td>
+                        <span class="badge-status badge-published"
+                          >Published</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem; white-space: nowrap">
+                        07 Jul 2025
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="View Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 8 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">8</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/c8961e/0d2d1c?text=A8"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          AfICTA Hosts Inaugural Webinar on Data Sovereignty and
+                          Cloud Regulation
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          aficta-webinar-data-sovereignty-cloud
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #ede9fe;
+                            color: #6d28d9;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >AI &amp; Governance</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Amara Konaté</td>
+                      <td>
+                        <span class="badge-status badge-draft">Draft</span>
+                      </td>
+                      <td
+                        style="
+                          font-size: 0.83rem;
+                          white-space: nowrap;
+                          color: var(--gray-600);
+                        "
+                      >
+                        — Not published
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="Preview Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 9 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">9</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/0ea5e9/ffffff?text=A9"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          AfICTA and ECOWAS Sign MOU to Strengthen Regional ICT
+                          Cooperation
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          aficta-ecowas-mou-ict-cooperation
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #dbeafe;
+                            color: #1d4ed8;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Internet Governance</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Dr. Ebenezer Asante</td>
+                      <td>
+                        <span class="badge-status badge-published"
+                          >Published</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem; white-space: nowrap">
+                        22 Jun 2025
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="View Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Row 10 -->
+                    <tr>
+                      <td style="color: var(--gray-600)">10</td>
+                      <td>
+                        <img
+                          src="https://placehold.co/40x40/b91c1c/ffffff?text=A10"
+                          alt="Article image"
+                          width="40"
+                          height="40"
+                          style="border-radius: 6px; object-fit: cover"
+                        />
+                      </td>
+                      <td>
+                        <div
+                          style="
+                            font-weight: 600;
+                            color: var(--green-dark);
+                            max-width: 280px;
+                          "
+                        >
+                          AfICTA Webinar Series 2024 — Registration Now Open
+                        </div>
+                        <div
+                          style="
+                            font-size: 0.72rem;
+                            color: var(--gray-600);
+                            margin-top: 2px;
+                          "
+                        >
+                          aficta-webinar-series-2024-registration
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="badge-status"
+                          style="
+                            background: #dcfce7;
+                            color: #15803d;
+                            font-size: 0.68rem;
+                            padding: 0.22rem 0.65rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Membership &amp; Events</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem">Grace Mensah-Bonsu</td>
+                      <td>
+                        <span class="badge-status badge-archived"
+                          >Archived</span
+                        >
+                      </td>
+                      <td style="font-size: 0.83rem; white-space: nowrap">
+                        10 Nov 2024
+                      </td>
+                      <td>
+                        <div class="actions">
+                          <button
+                            class="btn-action btn-view"
+                            title="View Article"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-edit"
+                            title="Edit Article"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addNewsModal"
+                          >
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button
+                            class="btn-action btn-delete"
+                            title="Delete Article"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- end table-responsive -->
+            </div>
+          </div>
+          <!-- end dash-card -->
+        </main>
+        <!-- end page-content -->
+
+        <!-- FOOTER -->
+        <footer
+          style="
+            padding: 1rem 1.75rem;
+            border-top: 1px solid var(--gray-200);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          "
+        >
+          <span style="font-size: 0.75rem; color: var(--gray-600)"
+            >&copy; 2026 AfICTA — African ICT Alliance. All rights
+            reserved.</span
+          >
+          <span style="font-size: 0.75rem; color: var(--gray-600)"
+            >Admin Dashboard v1.0</span
+          >
+        </footer>
+      </div>
+      <!-- end main-content -->
+    </div>
+    <!-- end dash-shell -->
+
+    <!-- ═══════════════════════════════════════════════════
+     ADD / EDIT NEWS ARTICLE MODAL
+═══════════════════════════════════════════════════ -->
+    <div
+      class="modal fade"
+      id="addNewsModal"
+      tabindex="-1"
+      aria-labelledby="addNewsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addNewsModalLabel">
+              <i class="bi bi-newspaper me-2" style="color: var(--gold)"></i>Add
+              News Article
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div
+            class="modal-body"
+            style="background: var(--gray-100); padding: 1.5rem"
+          >
+            <form id="newsForm" novalidate>
+              <!-- ── ARTICLE DETAILS ── -->
+              <div class="form-section">
+                <div class="form-section-header">
+                  <i class="bi bi-info-circle-fill"></i>
+                  <h6>Article Details</h6>
+                </div>
+                <div class="form-section-body">
+                  <div class="row g-3">
+                    <!-- Title -->
+                    <div class="col-12">
+                      <label class="form-label" for="articleTitle"
+                        >Article Title
+                        <span style="color: var(--danger)">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="articleTitle"
+                        placeholder="e.g. AfICTA Calls for Inclusive AI Governance Frameworks"
+                        required
+                      />
+                      <div class="form-text">
+                        Write a clear, descriptive headline. Aim for 60–80
+                        characters for SEO.
+                      </div>
+                    </div>
+
+                    <!-- Slug -->
+                    <div class="col-12">
+                      <label class="form-label" for="articleSlug"
+                        >URL Slug</label
+                      >
+                      <div class="input-group">
+                        <span
+                          class="input-group-text"
+                          style="
+                            font-size: 0.8rem;
+                            color: var(--gray-600);
+                            background: var(--gray-50);
+                            border-color: var(--gray-200);
+                          "
+                          >aficta.org/news/</span
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="articleSlug"
+                          placeholder="article-url-slug"
+                          readonly
+                          style="background: var(--gray-100)"
+                        />
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary"
+                          style="
+                            font-size: 0.8rem;
+                            border-color: var(--gray-200);
+                          "
+                          id="regenerateSlug"
+                        >
+                          <i class="bi bi-arrow-clockwise me-1"></i>Regenerate
+                        </button>
+                      </div>
+                      <div class="form-text">
+                        Auto-generated from the title. Click "Regenerate" to
+                        refresh.
+                      </div>
+                    </div>
+
+                    <!-- Category + Author -->
+                    <div class="col-md-6">
+                      <label class="form-label" for="articleCategory"
+                        >Category
+                        <span style="color: var(--danger)">*</span></label
+                      >
+                      <select class="form-select" id="articleCategory" required>
+                        <option value="">— Select a category —</option>
+                        <option value="ai-governance">
+                          AI &amp; Governance
+                        </option>
+                        <option value="digital-policy">Digital Policy</option>
+                        <option value="cybersecurity">Cybersecurity</option>
+                        <option value="internet-governance">
+                          Internet Governance
+                        </option>
+                        <option value="leadership">Leadership</option>
+                        <option value="membership-events">
+                          Membership &amp; Events
+                        </option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="articleAuthor"
+                        >Author
+                        <span style="color: var(--danger)">*</span></label
+                      >
+                      <select class="form-select" id="articleAuthor" required>
+                        <option value="">— Select an author —</option>
+                        <option value="1">
+                          Dr. Ebenezer Asante (Secretary General)
+                        </option>
+                        <option value="2">
+                          Amara Konaté (Director, Policy)
+                        </option>
+                        <option value="3">
+                          Dr. Fatima Al-Rashid (Director, Research)
+                        </option>
+                        <option value="4">
+                          Grace Mensah-Bonsu (Communications Manager)
+                        </option>
+                        <option value="5">Admin User</option>
+                      </select>
+                    </div>
+
+                    <!-- Status + Featured -->
+                    <div class="col-md-4">
+                      <label class="form-label" for="articleStatus"
+                        >Status
+                        <span style="color: var(--danger)">*</span></label
+                      >
+                      <select class="form-select" id="articleStatus" required>
+                        <option value="draft" selected>Draft</option>
+                        <option value="published">Published</option>
+                        <option value="archived">Archived</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label" for="articleDate"
+                        >Published Date</label
+                      >
+                      <input
+                        type="datetime-local"
+                        class="form-control"
+                        id="articleDate"
+                      />
+                      <div class="form-text">
+                        Leave empty to save as draft without a publish date.
+                      </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end pb-1">
+                      <div class="form-check" style="margin-bottom: 0.6rem">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="articleFeatured"
+                        />
+                        <label class="form-check-label" for="articleFeatured">
+                          <i
+                            class="bi bi-star-fill me-1"
+                            style="color: var(--gold); font-size: 0.85rem"
+                          ></i>
+                          Mark as Featured Article
+                        </label>
+                        <div class="form-text">
+                          Featured articles appear prominently on the homepage.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── CONTENT ── -->
+              <div class="form-section">
+                <div class="form-section-header">
+                  <i class="bi bi-file-richtext-fill"></i>
+                  <h6>Content</h6>
+                </div>
+                <div class="form-section-body">
+                  <div class="row g-3">
+                    <!-- Excerpt -->
+                    <div class="col-12">
+                      <label class="form-label" for="articleExcerpt"
+                        >Excerpt / Summary
+                        <span style="color: var(--danger)">*</span></label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="articleExcerpt"
+                        rows="3"
+                        placeholder="Write a short summary of the article (150–250 characters). This appears in article listing cards and search results."
+                      ></textarea>
+                      <div class="form-text" id="excerptCount">
+                        0 / 250 characters
+                      </div>
+                    </div>
+
+                    <!-- Full Content -->
+                    <div class="col-12">
+                      <label class="form-label" for="articleContent"
+                        >Full Content
+                        <span style="color: var(--danger)">*</span></label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="articleContent"
+                        rows="8"
+                        placeholder="Write the full article body here...&#10;&#10;You can use plain text or HTML markup."
+                      ></textarea>
+                      <div
+                        class="form-text"
+                        style="
+                          background: var(--gold-light);
+                          border: 1px solid #f5c842;
+                          border-radius: 6px;
+                          padding: 0.5rem 0.75rem;
+                          margin-top: 0.5rem;
+                          color: #92400e;
+                        "
+                      >
+                        <i class="bi bi-info-circle me-1"></i>
+                        <strong>Note:</strong> In production, replace this
+                        textarea with a rich text editor such as
+                        <strong>TinyMCE</strong> or
+                        <strong>CKEditor 5</strong> for formatted content, image
+                        embeds, and table support.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── FEATURED IMAGE ── -->
+              <div class="form-section">
+                <div class="form-section-header">
+                  <i class="bi bi-image-fill"></i>
+                  <h6>Featured Image</h6>
+                </div>
+                <div class="form-section-body">
+                  <div class="upload-zone" id="uploadZone">
+                    <i class="bi bi-cloud-upload-fill"></i>
+                    <p>
+                      <strong>Click to upload</strong> or drag and drop an image
+                      here
+                    </p>
+                    <span
+                      >PNG, JPG, WEBP — recommended 1200 × 628 px (16:9) — max 5
+                      MB</span
+                    >
+                    <input
+                      type="file"
+                      id="imageUpload"
+                      accept="image/*"
+                      style="display: none"
+                    />
+                  </div>
+                  <div class="row g-2 mt-2">
+                    <div class="col-md-6">
+                      <label class="form-label" for="imageAlt">Alt Text</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="imageAlt"
+                        placeholder="Describe the image for accessibility..."
+                      />
+                      <div class="form-text">
+                        Improves accessibility and SEO. Be descriptive.
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="imageCaption"
+                        >Caption (optional)</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="imageCaption"
+                        placeholder="e.g. AfICTA delegates at the 2025 Annual Summit, Nairobi."
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── SEO ── -->
+              <div class="form-section" style="margin-bottom: 0">
+                <div class="form-section-header">
+                  <i class="bi bi-search-heart-fill"></i>
+                  <h6>SEO Settings</h6>
+                </div>
+                <div class="form-section-body">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label" for="metaTitle"
+                        >Meta Title</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="metaTitle"
+                        placeholder="SEO page title (50–60 characters recommended)"
+                      />
+                      <div class="form-text" id="metaTitleCount">
+                        0 / 60 characters
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="metaDescription"
+                        >Meta Description</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="metaDescription"
+                        rows="2"
+                        placeholder="SEO description shown in search engine results (120–160 characters recommended)..."
+                      ></textarea>
+                      <div class="form-text" id="metaDescCount">
+                        0 / 160 characters
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- SERP Preview -->
+                  <div
+                    class="mt-3 p-3 rounded-2"
+                    style="
+                      background: var(--white);
+                      border: 1px solid var(--gray-200);
+                    "
+                  >
+                    <div
+                      style="
+                        font-size: 0.72rem;
+                        font-weight: 700;
+                        color: var(--gray-600);
+                        text-transform: uppercase;
+                        letter-spacing: 0.08em;
+                        margin-bottom: 0.5rem;
+                      "
+                    >
+                      Search Preview
+                    </div>
+                    <div
+                      style="
+                        font-size: 0.95rem;
+                        color: #1a0dab;
+                        font-weight: 500;
+                      "
+                      id="serpTitle"
+                    >
+                      Article Title — AfICTA
+                    </div>
+                    <div style="font-size: 0.75rem; color: #006621">
+                      aficta.org › news › article-slug
+                    </div>
+                    <div
+                      style="
+                        font-size: 0.82rem;
+                        color: #545454;
+                        margin-top: 0.2rem;
+                      "
+                      id="serpDesc"
+                    >
+                      Article meta description will appear here...
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- end modal-body -->
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn-outline-green"
+              onclick="saveArticle('draft')"
+            >
+              <i class="bi bi-floppy me-1"></i> Save Draft
+            </button>
+            <button
+              type="button"
+              class="btn-gold"
+              onclick="saveArticle('published')"
+            >
+              <i class="bi bi-send me-1"></i> Publish Article
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end #addNewsModal -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/dash.js"></script>
+    <script>
+      // ── DataTable init ──
+      $(document).ready(function () {
+        const table = $("#newsTable").DataTable({
+          pageLength: 10,
+          lengthMenu: [5, 10, 25, 50],
+          order: [[6, "desc"]],
+          columnDefs: [{ orderable: false, targets: [1, 7] }],
+          language: {
+            search: "",
+            searchPlaceholder: "Search...",
+            info: "Showing _START_ to _END_ of _TOTAL_ articles",
+            lengthMenu: "Show _MENU_ articles",
+          },
+        });
+
+        // Custom search box wiring
+        $("#newsSearch").on("keyup", function () {
+          table.search(this.value).draw();
+        });
+
+        // Status filter
+        $("#statusFilter").on("change", function () {
+          table.column(5).search(this.value).draw();
+        });
+
+        // Category filter
+        $("#categoryFilter").on("change", function () {
+          table.column(3).search(this.value).draw();
+        });
+      });
+
+      // ── Slug generator ──
+      function slugify(text) {
+        return text
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, "")
+          .replace(/[\s_]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+      }
+
+      document
+        .getElementById("articleTitle")
+        .addEventListener("input", function () {
+          document.getElementById("articleSlug").value = slugify(this.value);
+          const metaEl = document.getElementById("metaTitle");
+          if (!metaEl.value) metaEl.value = this.value + " — AfICTA";
+          updateMetaTitleCount();
+          updateSerpPreview();
+        });
+
+      document
+        .getElementById("regenerateSlug")
+        .addEventListener("click", function () {
+          const title = document.getElementById("articleTitle").value;
+          document.getElementById("articleSlug").value = slugify(title);
+        });
+
+      // ── Character counters ──
+      function updateExcerptCount() {
+        const len = document.getElementById("articleExcerpt").value.length;
+        document.getElementById("excerptCount").textContent =
+          len + " / 250 characters";
+      }
+      function updateMetaTitleCount() {
+        const len = document.getElementById("metaTitle").value.length;
+        document.getElementById("metaTitleCount").textContent =
+          len + " / 60 characters";
+      }
+      function updateMetaDescCount() {
+        const len = document.getElementById("metaDescription").value.length;
+        document.getElementById("metaDescCount").textContent =
+          len + " / 160 characters";
+      }
+      function updateSerpPreview() {
+        const title =
+          document.getElementById("metaTitle").value ||
+          document.getElementById("articleTitle").value + " — AfICTA";
+        const desc =
+          document.getElementById("metaDescription").value ||
+          document.getElementById("articleExcerpt").value ||
+          "Article meta description will appear here...";
+        const slug =
+          document.getElementById("articleSlug").value || "article-slug";
+        document.getElementById("serpTitle").textContent = title;
+        document.getElementById("serpDesc").textContent = desc;
+        document.querySelector(".serp-url") &&
+          (document.querySelector(".serp-url").textContent =
+            "aficta.org › news › " + slug);
+      }
+
+      document
+        .getElementById("articleExcerpt")
+        .addEventListener("input", function () {
+          updateExcerptCount();
+          updateSerpPreview();
+        });
+      document
+        .getElementById("metaTitle")
+        .addEventListener("input", function () {
+          updateMetaTitleCount();
+          updateSerpPreview();
+        });
+      document
+        .getElementById("metaDescription")
+        .addEventListener("input", function () {
+          updateMetaDescCount();
+          updateSerpPreview();
+        });
+
+      // ── Image upload zone ──
+      const uploadZone = document.getElementById("uploadZone");
+      const imageInput = document.getElementById("imageUpload");
+
+      uploadZone.addEventListener("click", () => imageInput.click());
+      uploadZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadZone.classList.add("drag-over");
+      });
+      uploadZone.addEventListener("dragleave", () =>
+        uploadZone.classList.remove("drag-over"),
+      );
+      uploadZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadZone.classList.remove("drag-over");
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith("image/")) handleImageFile(file);
+      });
+      imageInput.addEventListener("change", function () {
+        if (this.files[0]) handleImageFile(this.files[0]);
+      });
+
+      function handleImageFile(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          uploadZone.innerHTML =
+            '<img src="' +
+            e.target.result +
+            '" alt="Preview" style="max-height:160px;border-radius:6px;object-fit:cover;" />' +
+            '<p style="margin-top:0.5rem;font-size:0.8rem;color:var(--success);"><i class="bi bi-check-circle-fill me-1"></i>' +
+            file.name +
+            "</p>" +
+            '<span style="font-size:0.75rem;color:var(--gray-600);">Click to change image</span>';
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // ── Save / Publish ──
+      function saveArticle(action) {
+        const title = document.getElementById("articleTitle").value.trim();
+        if (!title) {
+          document.getElementById("articleTitle").classList.add("is-invalid");
+          document.getElementById("articleTitle").focus();
+          return;
+        }
+        document.getElementById("articleStatus").value = action;
+        // In production: submit via fetch/ajax. For demo, close modal and show alert.
+        const modal = bootstrap.Modal.getInstance(
+          document.getElementById("addNewsModal"),
+        );
+        modal.hide();
+        document.getElementById("successAlert").classList.remove("d-none");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governance Management — AfICTA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+  <link href="assets/dash.css" rel="stylesheet" />
+</head>
+<body>
+<div class="sidebar-overlay"></div>
+<div class="dash-shell">
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">
+      <div><div class="sidebar-brand-logo">Af<span>ICTA</span></div><span class="sidebar-brand-sub">Admin Panel</span></div>
+    </a>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a class="sidebar-link" href="index.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      <div class="nav-section-label">Content</div>
+      <a class="sidebar-link" href="news.html"><i class="bi bi-newspaper"></i> News Articles</a>
+      <a class="sidebar-link" href="newsletters.html"><i class="bi bi-envelope-paper"></i> Newsletters</a>
+      <a class="sidebar-link" href="slider.html"><i class="bi bi-images"></i> Hero Slider</a>
+      <div class="nav-section-label">Events &amp; Activities</div>
+      <a class="sidebar-link" href="summits.html"><i class="bi bi-trophy"></i> Summits</a>
+      <a class="sidebar-link" href="events.html"><i class="bi bi-calendar-event"></i> Events</a>
+      <a class="sidebar-link" href="webinars.html"><i class="bi bi-camera-video"></i> Webinars</a>
+      <div class="nav-section-label">Membership</div>
+      <a class="sidebar-link" href="members.html"><i class="bi bi-people"></i> Members <span class="badge-count">3</span></a>
+      <a class="sidebar-link active" href="governance.html"><i class="bi bi-person-badge"></i> Governance</a>
+      <div class="nav-section-label">System</div>
+      <a class="sidebar-link" href="messages.html"><i class="bi bi-chat-dots"></i> Messages <span class="badge-count">5</span></a>
+      <a class="sidebar-link" href="settings.html"><i class="bi bi-gear"></i> Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar"><i class="bi bi-person-fill"></i></div>
+        <div><div class="sidebar-user-name">Admin User</div><div class="sidebar-user-role">Super Admin</div></div>
+        <a href="login.html" class="sidebar-user-logout"><i class="bi bi-box-arrow-right"></i></a>
+      </div>
+    </div>
+  </aside>
+  <div class="main-content">
+    <header class="topbar">
+      <button class="topbar-toggle"><i class="bi bi-list"></i></button>
+      <div class="topbar-breadcrumb">Membership / Governance</div>
+      <div class="topbar-actions">
+        <button class="topbar-btn"><i class="bi bi-bell"></i><span class="topbar-notif-dot"></span></button>
+        <a href="../index.html" class="topbar-btn" target="_blank"><i class="bi bi-box-arrow-up-right"></i></a>
+        <div class="topbar-user"><div class="topbar-user-avatar"><i class="bi bi-person-fill"></i></div><span class="topbar-user-name d-none d-md-block">Admin</span></div>
+      </div>
+    </header>
+    <main class="page-content">
+
+      <!-- Page Header -->
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+          <h1 class="page-title mb-1">Governance Management</h1>
+          <p class="text-muted mb-0">Manage AfICTA Board of Directors, Advisory Council and Award Winners</p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <ul class="nav nav-tabs card-header-tabs" id="governanceTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="board-tab" data-bs-toggle="tab" data-bs-target="#board" type="button" role="tab">Board of Directors</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="council-tab" data-bs-toggle="tab" data-bs-target="#council" type="button" role="tab">Advisory Council</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="awards-tab" data-bs-toggle="tab" data-bs-target="#awards" type="button" role="tab">Award Winners</button>
+            </li>
+          </ul>
+        </div>
+        <div class="dash-card-body">
+          <div class="tab-content" id="governanceTabContent">
+
+            <!-- TAB 1: Board of Directors -->
+            <div class="tab-pane fade show active" id="board" role="tabpanel">
+              <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-green btn-sm" data-bs-toggle="modal" data-bs-target="#addBoardModal">
+                  <i class="bi bi-plus-lg me-1"></i>Add Board Member
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-aficta" id="boardTable">
+                  <thead>
+                    <tr>
+                      <th>Photo</th>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Region</th>
+                      <th>Country</th>
+                      <th>Organisation</th>
+                      <th>Term End</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/1a5c38/ffffff?text=AM" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Dr. Aminu Maida</strong></td>
+                      <td><span class="badge bg-warning text-dark">Chairperson</span></td>
+                      <td>West Africa</td>
+                      <td>Nigeria</td>
+                      <td>NCC</td>
+                      <td>Dec 2027</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/c8a52a/ffffff?text=FK" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Ms. Fatuma Kamau</strong></td>
+                      <td><span class="badge bg-secondary">VP — East Africa</span></td>
+                      <td>East Africa</td>
+                      <td>Kenya</td>
+                      <td>Communications Authority</td>
+                      <td>Dec 2027</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/2d6ca2/ffffff?text=LN" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Mr. Lungisa Ndaba</strong></td>
+                      <td><span class="badge bg-secondary">VP — Southern Africa</span></td>
+                      <td>Southern Africa</td>
+                      <td>South Africa</td>
+                      <td>ICASA</td>
+                      <td>Dec 2027</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/6f2da8/ffffff?text=KO" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Dr. Kwame Ofori-Baah</strong></td>
+                      <td><span class="badge bg-secondary">VP — West Africa</span></td>
+                      <td>West Africa</td>
+                      <td>Ghana</td>
+                      <td>NCA Ghana</td>
+                      <td>Dec 2027</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/c0392b/ffffff?text=HB" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Prof. Hassan Benali</strong></td>
+                      <td><span class="badge bg-secondary">VP — North Africa</span></td>
+                      <td>North Africa</td>
+                      <td>Morocco</td>
+                      <td>ANRT Morocco</td>
+                      <td>Dec 2027</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/e67e22/ffffff?text=GM" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Mr. Georges Mbeki</strong></td>
+                      <td><span class="badge bg-secondary">VP — Central Africa</span></td>
+                      <td>Central Africa</td>
+                      <td>DR Congo</td>
+                      <td>ARPCE Congo</td>
+                      <td>Dec 2027</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/1abc9c/ffffff?text=EA" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Ms. Esther Adesanya</strong></td>
+                      <td><span class="badge bg-info text-dark">Treasurer</span></td>
+                      <td>West Africa</td>
+                      <td>Nigeria</td>
+                      <td>ALTON Nigeria</td>
+                      <td>Dec 2027</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/2c5f2e/ffffff?text=MK" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Dr. Miriam Kariuki</strong></td>
+                      <td><span class="badge bg-info text-dark">Secretary General</span></td>
+                      <td>East Africa</td>
+                      <td>Kenya</td>
+                      <td>Secretariat</td>
+                      <td>Dec 2029</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB 2: Advisory Council -->
+            <div class="tab-pane fade" id="council" role="tabpanel">
+              <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-green btn-sm" data-bs-toggle="modal" data-bs-target="#addCouncilModal">
+                  <i class="bi bi-plus-lg me-1"></i>Add Council Member
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-aficta" id="councilTable">
+                  <thead>
+                    <tr>
+                      <th>Photo</th>
+                      <th>Name</th>
+                      <th>Title / Expertise</th>
+                      <th>Organisation</th>
+                      <th>Country</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/3498db/ffffff?text=TO" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Prof. Tunde Ogunsola</strong></td>
+                      <td>Internet Governance Expert</td>
+                      <td>University of Lagos</td>
+                      <td>Nigeria</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/e74c3c/ffffff?text=AW" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Dr. Aisha Wanjiku</strong></td>
+                      <td>Cybersecurity Specialist</td>
+                      <td>Strathmore University</td>
+                      <td>Kenya</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/27ae60/ffffff?text=KM" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Mr. Kofi Mensah</strong></td>
+                      <td>Digital Policy Adviser</td>
+                      <td>ITU Geneva</td>
+                      <td>Ghana</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/8e44ad/ffffff?text=SB" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Prof. Sophia Bendjelloul</strong></td>
+                      <td>Spectrum Management Expert</td>
+                      <td>ATUT Tunis</td>
+                      <td>Tunisia</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/f39c12/ffffff?text=JN" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Dr. John Nkosi</strong></td>
+                      <td>Mobile Money &amp; Fintech Lead</td>
+                      <td>GSMA Africa</td>
+                      <td>South Africa</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><img src="https://placehold.co/40x40/1a5c38/ffffff?text=NI" class="rounded-circle" width="40" height="40" alt="Photo"></td>
+                      <td><strong>Ms. Nadia Ibrahim</strong></td>
+                      <td>AI &amp; Digital Rights Adviser</td>
+                      <td>A4AI — Alliance for Affordable Internet</td>
+                      <td>Egypt</td>
+                      <td><span class="badge-status badge-active">Active</span></td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB 3: Award Winners -->
+            <div class="tab-pane fade" id="awards" role="tabpanel">
+              <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-green btn-sm" data-bs-toggle="modal" data-bs-target="#addAwardModal">
+                  <i class="bi bi-plus-lg me-1"></i>Add Award
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-aficta" id="awardsTable">
+                  <thead>
+                    <tr>
+                      <th>Year</th>
+                      <th>Award Category</th>
+                      <th>Winner / Organisation</th>
+                      <th>Country</th>
+                      <th>Summit Edition</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>2025</strong></td>
+                      <td>ICT Regulator of the Year</td>
+                      <td>Uganda Communications Commission</td>
+                      <td>Uganda</td>
+                      <td>AfICTA Summit 2025 — Kampala</td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>2025</strong></td>
+                      <td>Digital Innovation of the Year</td>
+                      <td>M-Pesa / Safaricom</td>
+                      <td>Kenya</td>
+                      <td>AfICTA Summit 2025 — Kampala</td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>2024</strong></td>
+                      <td>ICT Regulator of the Year</td>
+                      <td>Nigeria Communications Commission</td>
+                      <td>Nigeria</td>
+                      <td>AfICTA Summit 2024 — Abuja</td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>2024</strong></td>
+                      <td>Best Broadband Deployment</td>
+                      <td>Liquid Intelligent Technologies</td>
+                      <td>Zimbabwe</td>
+                      <td>AfICTA Summit 2024 — Abuja</td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>2023</strong></td>
+                      <td>ICT Regulator of the Year</td>
+                      <td>Communications Authority of Kenya</td>
+                      <td>Kenya</td>
+                      <td>AfICTA Summit 2023 — Nairobi</td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>2022</strong></td>
+                      <td>Digital Inclusion Champion</td>
+                      <td>GSMA Connected Women Programme</td>
+                      <td>Pan-Africa</td>
+                      <td>AfICTA Summit 2022 — Accra</td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>2021</strong></td>
+                      <td>Best e-Government Initiative</td>
+                      <td>Rwanda Development Board (Irembo)</td>
+                      <td>Rwanda</td>
+                      <td>AfICTA Summit 2021 — Virtual</td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><strong>2018</strong></td>
+                      <td>ICT Regulator of the Year</td>
+                      <td>ICASA — South Africa</td>
+                      <td>South Africa</td>
+                      <td>AfICTA Summit 2018 — Johannesburg</td>
+                      <td><div class="d-flex gap-1"><button class="btn-action btn-edit"><i class="bi bi-pencil"></i></button><button class="btn-action btn-delete"><i class="bi bi-trash"></i></button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- Add Board Member Modal -->
+<div class="modal fade" id="addBoardModal" tabindex="-1" aria-labelledby="addBoardModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addBoardModalLabel"><i class="bi bi-person-badge me-2"></i>Add Board Member</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-section">
+            <div class="form-section-header">Personal Details</div>
+            <div class="form-section-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="e.g. Dr. Aminu Maida">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Position <span class="text-danger">*</span></label>
+                  <select class="form-select">
+                    <option value="">Select Position</option>
+                    <option>Chairperson</option>
+                    <option>Vice-Chair West Africa</option>
+                    <option>Vice-Chair East Africa</option>
+                    <option>Vice-Chair Southern Africa</option>
+                    <option>Vice-Chair North Africa</option>
+                    <option>Vice-Chair Central Africa</option>
+                    <option>Treasurer</option>
+                    <option>Secretary General</option>
+                    <option>Board Member</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold">Region</label>
+                  <select class="form-select">
+                    <option>West Africa</option><option>East Africa</option>
+                    <option>Southern Africa</option><option>North Africa</option><option>Central Africa</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold">Country</label>
+                  <input type="text" class="form-control" placeholder="Country">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold">Organisation</label>
+                  <input type="text" class="form-control" placeholder="Employing institution">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold">Email Address</label>
+                  <input type="email" class="form-control" placeholder="name@org.org">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label fw-semibold">LinkedIn URL</label>
+                  <input type="url" class="form-control" placeholder="https://linkedin.com/in/...">
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-3">
+                  <label class="form-label fw-semibold">Term Start Date</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label fw-semibold">Term End Date</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Biography</label>
+                  <textarea class="form-control" rows="4" placeholder="Brief biography (displayed on the website)"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section-header">Photo</div>
+            <div class="form-section-body">
+              <div class="upload-zone">
+                <i class="bi bi-person-circle fs-2 mb-2 d-block"></i>
+                <p class="mb-1 fw-semibold">Upload profile photo</p>
+                <small class="text-muted">Recommended: square format, minimum 300×300px. Max 2MB.</small>
+                <input type="file" class="d-none" accept="image/*">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-green"><i class="bi bi-check-lg me-2"></i>Save Board Member</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Advisory Council Modal -->
+<div class="modal fade" id="addCouncilModal" tabindex="-1" aria-labelledby="addCouncilModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCouncilModalLabel"><i class="bi bi-people me-2"></i>Add Advisory Council Member</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-section">
+            <div class="form-section-header">Council Member Details</div>
+            <div class="form-section-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="Full name with title">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Title / Designation</label>
+                  <input type="text" class="form-control" placeholder="e.g. Professor, Dr.">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Expertise Area <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="e.g. Internet Governance, Cybersecurity">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Organisation</label>
+                  <input type="text" class="form-control" placeholder="Current institution">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Country</label>
+                  <input type="text" class="form-control" placeholder="Country of residence">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Biography</label>
+                  <textarea class="form-control" rows="4" placeholder="Brief biography"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-section-header">Photo</div>
+            <div class="form-section-body">
+              <div class="upload-zone">
+                <i class="bi bi-person-circle fs-2 mb-2 d-block"></i>
+                <p class="mb-1 fw-semibold">Upload profile photo</p>
+                <small class="text-muted">Square format, min 300×300px. Max 2MB.</small>
+                <input type="file" class="d-none" accept="image/*">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-green"><i class="bi bi-check-lg me-2"></i>Save Council Member</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Award Modal -->
+<div class="modal fade" id="addAwardModal" tabindex="-1" aria-labelledby="addAwardModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addAwardModalLabel"><i class="bi bi-trophy me-2"></i>Add Award Winner</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-section">
+            <div class="form-section-header">Award Details</div>
+            <div class="form-section-body">
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label fw-semibold">Year <span class="text-danger">*</span></label>
+                  <input type="number" class="form-control" placeholder="2026" min="2010" max="2099">
+                </div>
+                <div class="col-md-9">
+                  <label class="form-label fw-semibold">Award Category <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="e.g. ICT Regulator of the Year">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Winner Name / Organisation <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="Name or organisation">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Country</label>
+                  <input type="text" class="form-control" placeholder="Country">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Summit Edition</label>
+                  <select class="form-select">
+                    <option>AfICTA Summit 2026 — Dakar</option>
+                    <option>AfICTA Summit 2025 — Kampala</option>
+                    <option>AfICTA Summit 2024 — Abuja</option>
+                    <option>AfICTA Summit 2023 — Nairobi</option>
+                    <option>AfICTA Summit 2022 — Accra</option>
+                    <option>AfICTA Summit 2021 — Virtual</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Description</label>
+                  <textarea class="form-control" rows="3" placeholder="Brief description of why this award was given"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-green"><i class="bi bi-check-lg me-2"></i>Save Award</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/dash.js"></script>
+<script>
+$(document).ready(function() {
+  $('#boardTable').DataTable({ paging: false, searching: false, info: false });
+  $('#councilTable').DataTable({ paging: false, searching: false, info: false });
+  $('#awardsTable').DataTable({ order: [[0, 'desc']], pageLength: 10 });
+  $('.upload-zone').on('click', function() { $(this).find('input[type=file]').trigger('click'); });
+});
+</script>
+</body>
+</html>

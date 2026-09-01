@@ -1,0 +1,2282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Management — AfICTA Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+    <link href="../assets/dash.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="sidebar-overlay"></div>
+    <div class="dash-shell">
+      <aside class="sidebar">
+        <a href="index.html" class="sidebar-brand">
+          <div>
+            <div class="sidebar-brand-logo">Af<span>ICTA</span></div>
+            <span class="sidebar-brand-sub">Admin Panel</span>
+          </div>
+        </a>
+        <nav class="sidebar-nav">
+          <div class="nav-section-label">Main</div>
+          <a class="sidebar-link" href="index.html"
+            ><i class="bi bi-speedometer2"></i> Dashboard</a
+          >
+          <div class="nav-section-label">Content</div>
+          <a class="sidebar-link" href="news.html"
+            ><i class="bi bi-newspaper"></i> News Articles</a
+          >
+          <a class="sidebar-link" href="newsletters.html"
+            ><i class="bi bi-envelope-paper"></i> Newsletters</a
+          >
+          <a class="sidebar-link" href="slider.html"
+            ><i class="bi bi-images"></i> Hero Slider</a
+          >
+          <div class="nav-section-label">Events &amp; Activities</div>
+          <a class="sidebar-link" href="summits.html"
+            ><i class="bi bi-trophy"></i> Summits</a
+          >
+          <a class="sidebar-link" href="events.html"
+            ><i class="bi bi-calendar-event"></i> Events</a
+          >
+          <a class="sidebar-link" href="webinars.html"
+            ><i class="bi bi-camera-video"></i> Webinars</a
+          >
+          <div class="nav-section-label">Membership</div>
+          <a class="sidebar-link active" href="members.html"
+            ><i class="bi bi-people"></i> Members
+            <span class="badge-count">3</span></a
+          >
+          <a class="sidebar-link" href="governance.html"
+            ><i class="bi bi-person-badge"></i> Governance</a
+          >
+          <div class="nav-section-label">System</div>
+          <a class="sidebar-link" href="messages.html"
+            ><i class="bi bi-chat-dots"></i> Messages
+            <span class="badge-count">5</span></a
+          >
+          <a class="sidebar-link" href="settings.html"
+            ><i class="bi bi-gear"></i> Settings</a
+          >
+        </nav>
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div>
+              <div class="sidebar-user-name">Admin User</div>
+              <div class="sidebar-user-role">Super Admin</div>
+            </div>
+            <a href="login.html" class="sidebar-user-logout"
+              ><i class="bi bi-box-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </aside>
+      <div class="main-content">
+        <header class="topbar">
+          <button class="topbar-toggle"><i class="bi bi-list"></i></button>
+          <div class="topbar-breadcrumb">Membership / Members</div>
+          <div class="topbar-actions">
+            <button class="topbar-btn">
+              <i class="bi bi-bell"></i><span class="topbar-notif-dot"></span>
+            </button>
+            <a href="../index.html" class="topbar-btn" target="_blank"
+              ><i class="bi bi-box-arrow-up-right"></i
+            ></a>
+            <div class="topbar-user">
+              <div class="topbar-user-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <span class="topbar-user-name d-none d-md-block">Admin</span>
+            </div>
+          </div>
+        </header>
+        <main class="page-content">
+          <!-- Page Header -->
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+              <h1 class="page-title mb-1">Members Management</h1>
+              <p class="text-muted mb-0">
+                Manage AfICTA member organisations and applications
+              </p>
+            </div>
+            <button
+              class="btn btn-green"
+              data-bs-toggle="modal"
+              data-bs-target="#addMemberModal"
+            >
+              <i class="bi bi-plus-lg me-2"></i>Add New Member
+            </button>
+          </div>
+
+          <!-- Stat Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-6 col-lg-3">
+              <div class="stat-card gold">
+                <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+                <div class="stat-value">127</div>
+                <div class="stat-label">Total Members</div>
+                <div class="stat-trend">
+                  <i class="bi bi-arrow-up-short"></i> +4 this year
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="stat-card success">
+                <div class="stat-icon">
+                  <i class="bi bi-patch-check-fill"></i>
+                </div>
+                <div class="stat-value">98</div>
+                <div class="stat-label">Good Standing</div>
+                <div class="stat-trend">
+                  <i class="bi bi-arrow-up-short"></i> 77% of total
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="stat-card info">
+                <div class="stat-icon">
+                  <i class="bi bi-hourglass-split"></i>
+                </div>
+                <div class="stat-value">3</div>
+                <div class="stat-label">Pending Applications</div>
+                <div class="stat-trend">
+                  <i class="bi bi-clock"></i> Awaiting review
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="stat-card danger">
+                <div class="stat-icon"><i class="bi bi-x-circle-fill"></i></div>
+                <div class="stat-value">26</div>
+                <div class="stat-label">Expired</div>
+                <div class="stat-trend">
+                  <i class="bi bi-arrow-down-short"></i> -2 from last year
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <ul
+                class="nav nav-tabs card-header-tabs"
+                id="membersTabs"
+                role="tablist"
+              >
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="all-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#all-members"
+                    type="button"
+                    role="tab"
+                  >
+                    All Members <span class="badge bg-secondary ms-1">127</span>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="standing-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#good-standing"
+                    type="button"
+                    role="tab"
+                  >
+                    Good Standing <span class="badge bg-success ms-1">98</span>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pending-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#pending-apps"
+                    type="button"
+                    role="tab"
+                  >
+                    Pending Applications
+                    <span class="badge bg-warning text-dark ms-1">3</span>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="nations-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#member-nations"
+                    type="button"
+                    role="tab"
+                  >
+                    Member Nations
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="dash-card-body">
+              <div class="tab-content" id="membersTabContent">
+                <!-- TAB 1: All Members -->
+                <div
+                  class="tab-pane fade show active"
+                  id="all-members"
+                  role="tabpanel"
+                >
+                  <div class="table-responsive">
+                    <table
+                      class="table table-aficta dt-table"
+                      id="allMembersTable"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Logo</th>
+                          <th>Organisation</th>
+                          <th>Country</th>
+                          <th>Region</th>
+                          <th>Type</th>
+                          <th>Expires</th>
+                          <th>Status</th>
+                          <th>Good Standing</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/1a5c38/ffffff?text=NCC"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong>Nigeria Communications Commission</strong>
+                          </td>
+                          <td>Nigeria</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/c8a52a/ffffff?text=CA"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong>Communications Authority of Kenya</strong>
+                          </td>
+                          <td>Kenya</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/2d6ca2/ffffff?text=ICASA"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td><strong>ICASA — South Africa</strong></td>
+                          <td>South Africa</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/6f2da8/ffffff?text=NCA"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >National Communications Authority — Ghana</strong
+                            >
+                          </td>
+                          <td>Ghana</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Mar 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/c0392b/ffffff?text=NTRA"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >National Telecom Regulatory Authority —
+                              Egypt</strong
+                            >
+                          </td>
+                          <td>Egypt</td>
+                          <td>
+                            <span class="badge bg-warning text-dark"
+                              >North Africa</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2025</td>
+                          <td>
+                            <span class="badge-status badge-expired"
+                              >Expired</span
+                            >
+                          </td>
+                          <td>
+                            <i class="bi bi-x-circle-fill text-danger fs-5"></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-off"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/1a5c38/ffffff?text=NigISP"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >Association of Licensed Telecom Operators of
+                              Nigeria</strong
+                            >
+                          </td>
+                          <td>Nigeria</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-secondary">Association</span>
+                          </td>
+                          <td>30 Jun 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/c8a52a/ffffff?text=TESPOK"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >TESPOK — Telecoms Service Providers of
+                              Kenya</strong
+                            >
+                          </td>
+                          <td>Kenya</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-secondary">Association</span>
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/2c5f2e/ffffff?text=ISOC"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong>Internet Society — Ethiopia Chapter</strong>
+                          </td>
+                          <td>Ethiopia</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span
+                              class="badge bg-purple text-white"
+                              style="background: #6f2da8"
+                              >Civil Society</span
+                            >
+                          </td>
+                          <td>30 Sep 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/17a2b8/ffffff?text=ARTP"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >Autorité de Régulation des Télécoms —
+                              Senegal</strong
+                            >
+                          </td>
+                          <td>Senegal</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2025</td>
+                          <td>
+                            <span class="badge-status badge-expired"
+                              >Expired</span
+                            >
+                          </td>
+                          <td>
+                            <i class="bi bi-x-circle-fill text-danger fs-5"></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-off"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/3a7bd5/ffffff?text=ZICTa"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >Zambia Information &amp; Communications
+                              Technology Authority</strong
+                            >
+                          </td>
+                          <td>Zambia</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/e67e22/ffffff?text=ARPCE"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >ARPCE — Autorité de Régulation des Postes et
+                              Comm. — Congo</strong
+                            >
+                          </td>
+                          <td>DR Congo</td>
+                          <td>
+                            <span class="badge bg-dark">Central Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>30 Jun 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/2ecc71/ffffff?text=GITOC"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong>Ghana ICT Operators Coalition</strong>
+                          </td>
+                          <td>Ghana</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-secondary">Association</span>
+                          </td>
+                          <td>31 Mar 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/8e44ad/ffffff?text=TANICT"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td><strong>Tanzania ICT Commission</strong></td>
+                          <td>Tanzania</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/c0392b/ffffff?text=ANRT"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >Agence Nationale de Réglementation des Télécoms —
+                              Morocco</strong
+                            >
+                          </td>
+                          <td>Morocco</td>
+                          <td>
+                            <span class="badge bg-warning text-dark"
+                              >North Africa</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/1abc9c/ffffff?text=UCC"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong>Uganda Communications Commission</strong>
+                          </td>
+                          <td>Uganda</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>30 Sep 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <i
+                              class="bi bi-check-circle-fill text-success fs-5"
+                            ></i>
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-delete"
+                                title="Delete"
+                              >
+                                <i class="bi bi-trash"></i>
+                              </button>
+                              <button
+                                class="btn-action btn-toggle"
+                                title="Toggle Status"
+                              >
+                                <i class="bi bi-toggle-on"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- TAB 2: Good Standing -->
+                <div class="tab-pane fade" id="good-standing" role="tabpanel">
+                  <div class="table-responsive">
+                    <table
+                      class="table table-aficta dt-table"
+                      id="goodStandingTable"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Logo</th>
+                          <th>Organisation</th>
+                          <th>Country</th>
+                          <th>Region</th>
+                          <th>Type</th>
+                          <th>Expires</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/1a5c38/ffffff?text=NCC"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong>Nigeria Communications Commission</strong>
+                          </td>
+                          <td>Nigeria</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/c8a52a/ffffff?text=CA"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong>Communications Authority of Kenya</strong>
+                          </td>
+                          <td>Kenya</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/2d6ca2/ffffff?text=ICASA"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td><strong>ICASA — South Africa</strong></td>
+                          <td>South Africa</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/6f2da8/ffffff?text=NCA"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >National Communications Authority — Ghana</strong
+                            >
+                          </td>
+                          <td>Ghana</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Mar 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/1a5c38/ffffff?text=ALTON"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong
+                              >Association of Licensed Telecom Operators of
+                              Nigeria</strong
+                            >
+                          </td>
+                          <td>Nigeria</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-secondary">Association</span>
+                          </td>
+                          <td>30 Jun 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/c8a52a/ffffff?text=TESPOK"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td><strong>TESPOK — Kenya</strong></td>
+                          <td>Kenya</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-secondary">Association</span>
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/3a7bd5/ffffff?text=ZICTa"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td><strong>Zambia ICT Authority</strong></td>
+                          <td>Zambia</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/8e44ad/ffffff?text=TANICT"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td><strong>Tanzania ICT Commission</strong></td>
+                          <td>Tanzania</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/c0392b/ffffff?text=ANRT"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td><strong>ANRT — Morocco</strong></td>
+                          <td>Morocco</td>
+                          <td>
+                            <span class="badge bg-warning text-dark"
+                              >North Africa</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>31 Dec 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="https://placehold.co/40x40/1abc9c/ffffff?text=UCC"
+                              class="rounded"
+                              width="40"
+                              height="40"
+                              alt="Logo"
+                            />
+                          </td>
+                          <td>
+                            <strong>Uganda Communications Commission</strong>
+                          </td>
+                          <td>Uganda</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>30 Sep 2026</td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn-action btn-edit">
+                                <i class="bi bi-pencil"></i></button
+                              ><button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- TAB 3: Pending Applications -->
+                <div class="tab-pane fade" id="pending-apps" role="tabpanel">
+                  <div class="table-responsive">
+                    <table class="table table-aficta" id="pendingTable">
+                      <thead>
+                        <tr>
+                          <th>Applicant / Organisation</th>
+                          <th>Country</th>
+                          <th>Type</th>
+                          <th>Applied Date</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div>
+                              <strong
+                                >Rwanda Utilities Regulatory Authority
+                                (RURA)</strong
+                              >
+                            </div>
+                            <small class="text-muted"
+                              >Contact: Jean-Pierre Habimana ·
+                              jp.habimana@rura.rw</small
+                            >
+                          </td>
+                          <td>Rwanda</td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>14 Aug 2026</td>
+                          <td>
+                            <span class="badge-status badge-pending"
+                              >Pending</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn btn-sm btn-success px-2 py-1">
+                                <i class="bi bi-check-lg me-1"></i>Approve
+                              </button>
+                              <button class="btn btn-sm btn-danger px-2 py-1">
+                                <i class="bi bi-x-lg me-1"></i>Reject
+                              </button>
+                              <button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div>
+                              <strong
+                                >Botswana Communications Regulatory Authority
+                                (BOCRA)</strong
+                              >
+                            </div>
+                            <small class="text-muted"
+                              >Contact: Thabo Molefe ·
+                              t.molefe@bocra.org.bw</small
+                            >
+                          </td>
+                          <td>Botswana</td>
+                          <td>
+                            <span class="badge bg-info text-dark"
+                              >Regulatory</span
+                            >
+                          </td>
+                          <td>21 Aug 2026</td>
+                          <td>
+                            <span class="badge-status badge-pending"
+                              >Pending</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn btn-sm btn-success px-2 py-1">
+                                <i class="bi bi-check-lg me-1"></i>Approve
+                              </button>
+                              <button class="btn btn-sm btn-danger px-2 py-1">
+                                <i class="bi bi-x-lg me-1"></i>Reject
+                              </button>
+                              <button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div>
+                              <strong>West Africa ICT Forum (WAICTF)</strong>
+                            </div>
+                            <small class="text-muted"
+                              >Contact: Aminata Diallo ·
+                              a.diallo@waictf.org</small
+                            >
+                          </td>
+                          <td>Ivory Coast</td>
+                          <td>
+                            <span class="badge bg-secondary">Association</span>
+                          </td>
+                          <td>28 Aug 2026</td>
+                          <td>
+                            <span class="badge-status badge-pending"
+                              >Pending</span
+                            >
+                          </td>
+                          <td>
+                            <div class="d-flex gap-1">
+                              <button class="btn btn-sm btn-success px-2 py-1">
+                                <i class="bi bi-check-lg me-1"></i>Approve
+                              </button>
+                              <button class="btn btn-sm btn-danger px-2 py-1">
+                                <i class="bi bi-x-lg me-1"></i>Reject
+                              </button>
+                              <button class="btn-action btn-view">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- TAB 4: Member Nations -->
+                <div class="tab-pane fade" id="member-nations" role="tabpanel">
+                  <div class="table-responsive">
+                    <table
+                      class="table table-aficta dt-table"
+                      id="nationsTable"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Country</th>
+                          <th>ISO Code</th>
+                          <th>Region</th>
+                          <th>Status</th>
+                          <th>Members Count</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Nigeria</td>
+                          <td>NG</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>14</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Kenya</td>
+                          <td>KE</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>9</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>South Africa</td>
+                          <td>ZA</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>8</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Ghana</td>
+                          <td>GH</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>7</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Egypt</td>
+                          <td>EG</td>
+                          <td>
+                            <span class="badge bg-warning text-dark"
+                              >North Africa</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>6</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Ethiopia</td>
+                          <td>ET</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>5</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Tanzania</td>
+                          <td>TZ</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>4</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Uganda</td>
+                          <td>UG</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>4</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Zambia</td>
+                          <td>ZM</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>3</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Morocco</td>
+                          <td>MA</td>
+                          <td>
+                            <span class="badge bg-warning text-dark"
+                              >North Africa</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>5</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Senegal</td>
+                          <td>SN</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>3</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>DR Congo</td>
+                          <td>CD</td>
+                          <td>
+                            <span class="badge bg-dark">Central Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>4</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Cameroon</td>
+                          <td>CM</td>
+                          <td>
+                            <span class="badge bg-dark">Central Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>3</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Rwanda</td>
+                          <td>RW</td>
+                          <td>
+                            <span class="badge bg-success">East Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-pending"
+                              >Pending</span
+                            >
+                          </td>
+                          <td><strong>0</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Mozambique</td>
+                          <td>MZ</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>2</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Tunisia</td>
+                          <td>TN</td>
+                          <td>
+                            <span class="badge bg-warning text-dark"
+                              >North Africa</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>3</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Algeria</td>
+                          <td>DZ</td>
+                          <td>
+                            <span class="badge bg-warning text-dark"
+                              >North Africa</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>2</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Ivory Coast</td>
+                          <td>CI</td>
+                          <td>
+                            <span class="badge bg-primary">West Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>4</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Angola</td>
+                          <td>AO</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-active"
+                              >Active</span
+                            >
+                          </td>
+                          <td><strong>2</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Botswana</td>
+                          <td>BW</td>
+                          <td>
+                            <span class="badge bg-danger">Southern Africa</span>
+                          </td>
+                          <td>
+                            <span class="badge-status badge-pending"
+                              >Pending</span
+                            >
+                          </td>
+                          <td><strong>0</strong></td>
+                          <td>
+                            <button class="btn-action btn-view">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Add Member Modal -->
+    <div
+      class="modal fade"
+      id="addMemberModal"
+      tabindex="-1"
+      aria-labelledby="addMemberModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addMemberModalLabel">
+              <i class="bi bi-people me-2"></i>Add New Member
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addMemberForm">
+              <div class="form-section">
+                <div class="form-section-header">Organisation Details</div>
+                <div class="form-section-body">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label fw-semibold"
+                        >Organisation Name
+                        <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Full legal name of organisation"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label fw-semibold"
+                        >Country <span class="text-danger">*</span></label
+                      >
+                      <select class="form-select">
+                        <option value="">Select Country</option>
+                        <option>Nigeria</option>
+                        <option>Kenya</option>
+                        <option>South Africa</option>
+                        <option>Ghana</option>
+                        <option>Egypt</option>
+                        <option>Ethiopia</option>
+                        <option>Tanzania</option>
+                        <option>Uganda</option>
+                        <option>Morocco</option>
+                        <option>Senegal</option>
+                        <option>Zambia</option>
+                        <option>DR Congo</option>
+                        <option>Cameroon</option>
+                        <option>Rwanda</option>
+                        <option>Tunisia</option>
+                        <option>Algeria</option>
+                        <option>Ivory Coast</option>
+                        <option>Angola</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label fw-semibold"
+                        >Region <span class="text-danger">*</span></label
+                      >
+                      <select class="form-select">
+                        <option value="">Select Region</option>
+                        <option>West Africa</option>
+                        <option>East Africa</option>
+                        <option>Southern Africa</option>
+                        <option>North Africa</option>
+                        <option>Central Africa</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label fw-semibold"
+                        >Membership Type
+                        <span class="text-danger">*</span></label
+                      >
+                      <select class="form-select">
+                        <option value="">Select Type</option>
+                        <option>Regulatory</option>
+                        <option>Association</option>
+                        <option>Civil Society</option>
+                        <option>Private Sector</option>
+                        <option>Academia</option>
+                        <option>International Organisation</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label fw-semibold">Website URL</label>
+                      <input
+                        type="url"
+                        class="form-control"
+                        placeholder="https://example.org"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label fw-semibold"
+                        >Email Address <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="info@organisation.org"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label fw-semibold">Phone Number</label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        placeholder="+234 000 000 0000"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label fw-semibold"
+                        >Contact Person</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Full name of primary contact"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="form-section-header">
+                  Membership Dates &amp; Fees
+                </div>
+                <div class="form-section-body">
+                  <div class="row g-3">
+                    <div class="col-md-3">
+                      <label class="form-label fw-semibold"
+                        >Membership Start Date</label
+                      >
+                      <input type="date" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label fw-semibold"
+                        >Membership Expires</label
+                      >
+                      <input type="date" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label fw-semibold"
+                        >Payment Reference</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="e.g. TRF-2026-0042"
+                      />
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                      <div class="form-check mb-2">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="feePaid"
+                        />
+                        <label
+                          class="form-check-label fw-semibold"
+                          for="feePaid"
+                          >Annual Fee Paid</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="form-section-header">Organisation Logo</div>
+                <div class="form-section-body">
+                  <div class="upload-zone">
+                    <i class="bi bi-cloud-upload fs-2 mb-2 d-block"></i>
+                    <p class="mb-1 fw-semibold">
+                      Drag &amp; drop logo here or click to browse
+                    </p>
+                    <small class="text-muted"
+                      >Recommended: PNG or SVG, minimum 200×200px. Max
+                      2MB.</small
+                    >
+                    <input type="file" class="d-none" accept="image/*" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="form-section-header">Status &amp; Notes</div>
+                <div class="form-section-body">
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <label class="form-label fw-semibold">Status</label>
+                      <select class="form-select">
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="expired">Expired</option>
+                        <option value="suspended">Suspended</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end">
+                      <div class="form-check mb-2">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="goodStanding"
+                          checked
+                        />
+                        <label
+                          class="form-check-label fw-semibold"
+                          for="goodStanding"
+                          >Good Standing</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label fw-semibold">Notes</label>
+                      <textarea
+                        class="form-control"
+                        rows="3"
+                        placeholder="Internal notes about this member (not publicly visible)"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-green">
+              <i class="bi bi-check-lg me-2"></i>Save Member
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/dash.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#allMembersTable").DataTable({
+          pageLength: 10,
+          order: [[1, "asc"]],
+        });
+        $("#goodStandingTable").DataTable({
+          pageLength: 10,
+          order: [[1, "asc"]],
+        });
+        $("#nationsTable").DataTable({ pageLength: 10, order: [[4, "desc"]] });
+        // Upload zone click
+        $(".upload-zone").on("click", function () {
+          $(this).find("input[type=file]").trigger("click");
+        });
+      });
+    </script>
+  </body>
+</html>

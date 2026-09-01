@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — AfICTA Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+    <link href="../assets/dash.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="sidebar-overlay"></div>
+    <div class="dash-shell">
+      <!-- ═══════════════════════════════════════
+       SIDEBAR
+  ═══════════════════════════════════════ -->
+      <aside class="sidebar">
+        <a href="index.html" class="sidebar-brand">
+          <div>
+            <div class="sidebar-brand-logo">Af<span>ICTA</span></div>
+            <span class="sidebar-brand-sub">Admin Panel</span>
+          </div>
+        </a>
+        <nav class="sidebar-nav">
+          <div class="nav-section-label">Main</div>
+          <a class="sidebar-link active" href="index.html"
+            ><i class="bi bi-speedometer2"></i> Dashboard</a
+          >
+
+          <div class="nav-section-label">Content</div>
+          <a class="sidebar-link" href="news.html"
+            ><i class="bi bi-newspaper"></i> News Articles</a
+          >
+          <a class="sidebar-link" href="newsletters.html"
+            ><i class="bi bi-envelope-paper"></i> Newsletters</a
+          >
+          <a class="sidebar-link" href="slider.html"
+            ><i class="bi bi-images"></i> Hero Slider</a
+          >
+
+          <div class="nav-section-label">Events &amp; Activities</div>
+          <a class="sidebar-link" href="summits.html"
+            ><i class="bi bi-trophy"></i> Summits</a
+          >
+          <a class="sidebar-link" href="events.html"
+            ><i class="bi bi-calendar-event"></i> Events</a
+          >
+          <a class="sidebar-link" href="webinars.html"
+            ><i class="bi bi-camera-video"></i> Webinars</a
+          >
+
+          <div class="nav-section-label">Membership</div>
+          <a class="sidebar-link" href="members.html"
+            ><i class="bi bi-people"></i> Members
+            <span class="badge-count">3</span></a
+          >
+          <a class="sidebar-link" href="governance.html"
+            ><i class="bi bi-person-badge"></i> Governance</a
+          >
+
+          <div class="nav-section-label">System</div>
+          <a class="sidebar-link" href="messages.html"
+            ><i class="bi bi-chat-dots"></i> Messages
+            <span class="badge-count">5</span></a
+          >
+          <a class="sidebar-link" href="settings.html"
+            ><i class="bi bi-gear"></i> Settings</a
+          >
+        </nav>
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div>
+              <div class="sidebar-user-name">Admin User</div>
+              <div class="sidebar-user-role">Super Admin</div>
+            </div>
+            <a href="login.html" class="sidebar-user-logout" title="Logout"
+              ><i class="bi bi-box-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ═══════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════ -->
+      <div class="main-content">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <button class="topbar-toggle"><i class="bi bi-list"></i></button>
+          <div class="topbar-breadcrumb">Dashboard</div>
+          <div class="topbar-actions">
+            <button class="topbar-btn" title="Notifications">
+              <i class="bi bi-bell"></i><span class="topbar-notif-dot"></span>
+            </button>
+            <a
+              href="../index.html"
+              class="topbar-btn"
+              title="View Website"
+              target="_blank"
+              ><i class="bi bi-box-arrow-up-right"></i
+            ></a>
+            <div class="topbar-user">
+              <div class="topbar-user-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <span class="topbar-user-name d-none d-md-block">Admin</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="page-content">
+          <!-- Page Header -->
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Dashboard Overview</h1>
+              <p class="page-subtitle">
+                Welcome back, Admin. Here's what's happening.
+              </p>
+            </div>
+            <div class="d-flex gap-2">
+              <span
+                style="
+                  font-size: 0.78rem;
+                  color: var(--gray-600);
+                  align-self: center;
+                "
+                ><i class="bi bi-clock me-1"></i> Last updated: just now</span
+              >
+            </div>
+          </div>
+
+          <!-- ── STAT CARDS ── -->
+          <div class="row g-3 mb-4">
+            <div class="col-6 col-xl">
+              <div class="stat-card">
+                <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+                <div class="stat-body">
+                  <div class="stat-value">127</div>
+                  <div class="stat-label">Total Members</div>
+                  <div class="stat-trend up">
+                    <i class="bi bi-arrow-up-short"></i> +4 this month
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-xl">
+              <div class="stat-card gold">
+                <div class="stat-icon"><i class="bi bi-newspaper"></i></div>
+                <div class="stat-body">
+                  <div class="stat-value">84</div>
+                  <div class="stat-label">News Articles</div>
+                  <div class="stat-trend up">
+                    <i class="bi bi-arrow-up-short"></i> +6 this month
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-xl">
+              <div class="stat-card danger">
+                <div class="stat-icon"><i class="bi bi-person-plus"></i></div>
+                <div class="stat-body">
+                  <div class="stat-value">3</div>
+                  <div class="stat-label">Pending Applications</div>
+                  <div class="stat-trend neutral">
+                    <i class="bi bi-exclamation-circle me-1"></i>Needs review
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-xl">
+              <div class="stat-card info">
+                <div class="stat-icon">
+                  <i class="bi bi-calendar-event"></i>
+                </div>
+                <div class="stat-body">
+                  <div class="stat-value">2</div>
+                  <div class="stat-label">Upcoming Events</div>
+                  <div class="stat-trend neutral">
+                    <i class="bi bi-calendar-check me-1"></i>Next 30 days
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-xl">
+              <div class="stat-card success">
+                <div class="stat-icon"><i class="bi bi-chat-dots"></i></div>
+                <div class="stat-body">
+                  <div class="stat-value">5</div>
+                  <div class="stat-label">Unread Messages</div>
+                  <div class="stat-trend neutral">
+                    <i class="bi bi-envelope me-1"></i>Awaiting reply
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── RECENT NEWS + QUICK ACTIONS ── -->
+          <div class="row g-3 mb-3">
+            <!-- Recent News Articles -->
+            <div class="col-lg-8">
+              <div class="dash-card h-100">
+                <div class="dash-card-header">
+                  <h6 class="dash-card-title">
+                    <i
+                      class="bi bi-newspaper me-2"
+                      style="color: var(--gold)"
+                    ></i
+                    >Recent News Articles
+                  </h6>
+                  <a
+                    href="news.html"
+                    class="btn-outline-green"
+                    style="font-size: 0.78rem; padding: 0.3rem 0.85rem"
+                    >View All</a
+                  >
+                </div>
+                <div class="dash-card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table table-aficta mb-0">
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Category</th>
+                          <th>Status</th>
+                          <th>Date</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="max-width: 260px">
+                            <div
+                              style="
+                                font-weight: 600;
+                                color: var(--green-dark);
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                max-width: 240px;
+                              "
+                            >
+                              AfICTA Elects New Vice-Chairs at 2025 Annual
+                              Summit
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge-status badge-upcoming"
+                              style="
+                                font-size: 0.7rem;
+                                padding: 0.25rem 0.65rem;
+                                border-radius: 20px;
+                                font-weight: 700;
+                              "
+                              >Leadership</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-published"
+                              >Published</span
+                            >
+                          </td>
+                          <td style="white-space: nowrap">14 Aug 2025</td>
+                          <td>
+                            <div class="actions">
+                              <button class="btn-action btn-view" title="View">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="max-width: 260px">
+                            <div
+                              style="
+                                font-weight: 600;
+                                color: var(--green-dark);
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                max-width: 240px;
+                              "
+                            >
+                              AfICTA Calls for Inclusive AI Governance
+                              Frameworks Across Africa
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge-status"
+                              style="
+                                background: #ede9fe;
+                                color: #6d28d9;
+                                font-size: 0.7rem;
+                                padding: 0.25rem 0.65rem;
+                                border-radius: 20px;
+                                font-weight: 700;
+                              "
+                              >AI &amp; Governance</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-published"
+                              >Published</span
+                            >
+                          </td>
+                          <td style="white-space: nowrap">09 Aug 2025</td>
+                          <td>
+                            <div class="actions">
+                              <button class="btn-action btn-view" title="View">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="max-width: 260px">
+                            <div
+                              style="
+                                font-weight: 600;
+                                color: var(--green-dark);
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                max-width: 240px;
+                              "
+                            >
+                              New Cybersecurity Guidelines for African Digital
+                              Enterprises
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge-status badge-pending"
+                              style="
+                                font-size: 0.7rem;
+                                padding: 0.25rem 0.65rem;
+                                border-radius: 20px;
+                                font-weight: 700;
+                              "
+                              >Cybersecurity</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-draft">Draft</span>
+                          </td>
+                          <td style="white-space: nowrap">02 Aug 2025</td>
+                          <td>
+                            <div class="actions">
+                              <button class="btn-action btn-view" title="View">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="max-width: 260px">
+                            <div
+                              style="
+                                font-weight: 600;
+                                color: var(--green-dark);
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                max-width: 240px;
+                              "
+                            >
+                              AfICTA Partners with ITU to Advance Internet
+                              Governance in Africa
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge-status badge-upcoming"
+                              style="
+                                background: #dbeafe;
+                                color: #1d4ed8;
+                                font-size: 0.7rem;
+                                padding: 0.25rem 0.65rem;
+                                border-radius: 20px;
+                                font-weight: 700;
+                              "
+                              >Internet Governance</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-published"
+                              >Published</span
+                            >
+                          </td>
+                          <td style="white-space: nowrap">28 Jul 2025</td>
+                          <td>
+                            <div class="actions">
+                              <button class="btn-action btn-view" title="View">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="max-width: 260px">
+                            <div
+                              style="
+                                font-weight: 600;
+                                color: var(--green-dark);
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                max-width: 240px;
+                              "
+                            >
+                              Digital Policy Roundtable: Summary Report and Key
+                              Outcomes
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge-status"
+                              style="
+                                background: #fce7f3;
+                                color: #9d174d;
+                                font-size: 0.7rem;
+                                padding: 0.25rem 0.65rem;
+                                border-radius: 20px;
+                                font-weight: 700;
+                              "
+                              >Digital Policy</span
+                            >
+                          </td>
+                          <td>
+                            <span class="badge-status badge-published"
+                              >Published</span
+                            >
+                          </td>
+                          <td style="white-space: nowrap">21 Jul 2025</td>
+                          <td>
+                            <div class="actions">
+                              <button class="btn-action btn-view" title="View">
+                                <i class="bi bi-eye"></i>
+                              </button>
+                              <button class="btn-action btn-edit" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="col-lg-4">
+              <div class="dash-card h-100">
+                <div class="dash-card-header">
+                  <h6 class="dash-card-title">
+                    <i
+                      class="bi bi-lightning-charge me-2"
+                      style="color: var(--gold)"
+                    ></i
+                    >Quick Actions
+                  </h6>
+                </div>
+                <div class="dash-card-body">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <a
+                        href="news.html"
+                        class="quick-link text-decoration-none"
+                      >
+                        <i class="bi bi-plus-circle"></i>
+                        Add News Article
+                      </a>
+                    </div>
+                    <div class="col-6">
+                      <a
+                        href="events.html"
+                        class="quick-link text-decoration-none"
+                      >
+                        <i class="bi bi-calendar-plus"></i>
+                        Add Event
+                      </a>
+                    </div>
+                    <div class="col-6">
+                      <a
+                        href="summits.html"
+                        class="quick-link text-decoration-none"
+                      >
+                        <i class="bi bi-trophy"></i>
+                        Add Summit
+                      </a>
+                    </div>
+                    <div class="col-6">
+                      <a
+                        href="members.html"
+                        class="quick-link text-decoration-none"
+                      >
+                        <i class="bi bi-people"></i>
+                        Manage Members
+                      </a>
+                    </div>
+                    <div class="col-6">
+                      <a
+                        href="messages.html"
+                        class="quick-link text-decoration-none"
+                      >
+                        <i class="bi bi-chat-dots"></i>
+                        View Messages
+                      </a>
+                    </div>
+                    <div class="col-6">
+                      <a
+                        href="settings.html"
+                        class="quick-link text-decoration-none"
+                      >
+                        <i class="bi bi-gear"></i>
+                        Site Settings
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Mini stat summary -->
+                  <div
+                    class="mt-3 p-3 rounded-2"
+                    style="
+                      background: var(--green-light);
+                      border: 1px solid var(--gray-200);
+                    "
+                  >
+                    <div
+                      class="d-flex align-items-center justify-content-between mb-1"
+                    >
+                      <span
+                        style="
+                          font-size: 0.78rem;
+                          font-weight: 700;
+                          color: var(--green-dark);
+                        "
+                        >Site Health</span
+                      >
+                      <span
+                        style="
+                          font-size: 0.78rem;
+                          color: var(--success);
+                          font-weight: 700;
+                        "
+                        ><i class="bi bi-check-circle-fill me-1"></i>Good</span
+                      >
+                    </div>
+                    <div
+                      class="progress"
+                      style="height: 6px; border-radius: 3px"
+                    >
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 88%; background: var(--green)"
+                        aria-valuenow="88"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <div
+                      style="
+                        font-size: 0.72rem;
+                        color: var(--gray-600);
+                        margin-top: 0.4rem;
+                      "
+                    >
+                      88% content health score
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── MESSAGES + ACTIVITY FEED ── -->
+          <div class="row g-3">
+            <!-- Recent Messages -->
+            <div class="col-lg-5">
+              <div class="dash-card h-100">
+                <div class="dash-card-header">
+                  <h6 class="dash-card-title">
+                    <i
+                      class="bi bi-chat-dots me-2"
+                      style="color: var(--gold)"
+                    ></i
+                    >Recent Messages
+                  </h6>
+                  <a
+                    href="messages.html"
+                    class="btn-outline-green"
+                    style="font-size: 0.78rem; padding: 0.3rem 0.85rem"
+                    >View All</a
+                  >
+                </div>
+                <div class="dash-card-body p-0">
+                  <!-- Message Item 1 -->
+                  <div
+                    class="activity-item px-3"
+                    style="border-bottom: 1px solid var(--gray-100)"
+                  >
+                    <div
+                      class="activity-icon"
+                      style="background: #dbeafe; color: #1d4ed8"
+                    >
+                      <i class="bi bi-person-fill"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
+                          gap: 0.5rem;
+                          flex-wrap: wrap;
+                        "
+                      >
+                        <span
+                          style="
+                            font-size: 0.84rem;
+                            font-weight: 700;
+                            color: var(--green-dark);
+                          "
+                          >Amina Osei</span
+                        >
+                        <span
+                          class="badge-status badge-unread"
+                          style="
+                            font-size: 0.65rem;
+                            padding: 0.2rem 0.6rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Unread</span
+                        >
+                      </div>
+                      <div class="activity-text mt-1">
+                        Inquiry about AfICTA membership eligibility for my
+                        organisation...
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>35 minutes ago
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Message Item 2 -->
+                  <div
+                    class="activity-item px-3"
+                    style="border-bottom: 1px solid var(--gray-100)"
+                  >
+                    <div
+                      class="activity-icon"
+                      style="background: #dbeafe; color: #1d4ed8"
+                    >
+                      <i class="bi bi-person-fill"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
+                          gap: 0.5rem;
+                          flex-wrap: wrap;
+                        "
+                      >
+                        <span
+                          style="
+                            font-size: 0.84rem;
+                            font-weight: 700;
+                            color: var(--green-dark);
+                          "
+                          >Dr. Kwame Asante</span
+                        >
+                        <span
+                          class="badge-status badge-unread"
+                          style="
+                            font-size: 0.65rem;
+                            padding: 0.2rem 0.6rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Unread</span
+                        >
+                      </div>
+                      <div class="activity-text mt-1">
+                        Request for partnership discussion — ICT Innovation Hub
+                        Accra...
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>2 hours ago
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Message Item 3 -->
+                  <div
+                    class="activity-item px-3"
+                    style="border-bottom: 1px solid var(--gray-100)"
+                  >
+                    <div
+                      class="activity-icon"
+                      style="
+                        background: var(--gray-100);
+                        color: var(--gray-600);
+                      "
+                    >
+                      <i class="bi bi-person-fill"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
+                          gap: 0.5rem;
+                          flex-wrap: wrap;
+                        "
+                      >
+                        <span
+                          style="
+                            font-size: 0.84rem;
+                            font-weight: 700;
+                            color: var(--green-dark);
+                          "
+                          >Fatima Diallo</span
+                        >
+                        <span
+                          class="badge-status badge-read"
+                          style="
+                            font-size: 0.65rem;
+                            padding: 0.2rem 0.6rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Read</span
+                        >
+                      </div>
+                      <div class="activity-text mt-1">
+                        Media accreditation request for the AfICTA Summit
+                        2025...
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>Yesterday, 4:12 PM
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Message Item 4 -->
+                  <div class="activity-item px-3">
+                    <div
+                      class="activity-icon"
+                      style="
+                        background: var(--gray-100);
+                        color: var(--gray-600);
+                      "
+                    >
+                      <i class="bi bi-person-fill"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
+                          gap: 0.5rem;
+                          flex-wrap: wrap;
+                        "
+                      >
+                        <span
+                          style="
+                            font-size: 0.84rem;
+                            font-weight: 700;
+                            color: var(--green-dark);
+                          "
+                          >Emmanuel Nyarko</span
+                        >
+                        <span
+                          class="badge-status badge-read"
+                          style="
+                            font-size: 0.65rem;
+                            padding: 0.2rem 0.6rem;
+                            border-radius: 20px;
+                            font-weight: 700;
+                          "
+                          >Read</span
+                        >
+                      </div>
+                      <div class="activity-text mt-1">
+                        Question about AfICTA Digital Policy Working Group
+                        sessions...
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>2 days ago
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activity Feed -->
+            <div class="col-lg-7">
+              <div class="dash-card h-100">
+                <div class="dash-card-header">
+                  <h6 class="dash-card-title">
+                    <i
+                      class="bi bi-activity me-2"
+                      style="color: var(--gold)"
+                    ></i
+                    >Recent Activity Feed
+                  </h6>
+                  <span style="font-size: 0.75rem; color: var(--gray-600)"
+                    >Last 7 days</span
+                  >
+                </div>
+                <div class="dash-card-body" style="padding: 0.75rem 1.25rem">
+                  <div class="activity-item">
+                    <div
+                      class="activity-icon"
+                      style="background: #dcfce7; color: #15803d"
+                    >
+                      <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Admin</strong> published News Article:
+                        <em
+                          >AfICTA Elects New Vice-Chairs at 2025 Annual
+                          Summit</em
+                        >
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>Today, 10:45 AM
+                      </div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div
+                      class="activity-icon"
+                      style="background: #dbeafe; color: #1d4ed8"
+                    >
+                      <i class="bi bi-person-plus-fill"></i>
+                    </div>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Admin</strong> approved membership application
+                        from <em>Horizon Digital Ltd (Kenya)</em>
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>Today, 9:18 AM
+                      </div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div
+                      class="activity-icon"
+                      style="background: var(--gold-light); color: var(--gold)"
+                    >
+                      <i class="bi bi-images"></i>
+                    </div>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Admin</strong> updated Hero Slider — added
+                        AfICTA Summit 2025 banner image
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>Yesterday, 3:55 PM
+                      </div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div
+                      class="activity-icon"
+                      style="background: #dcfce7; color: #15803d"
+                    >
+                      <i class="bi bi-trophy-fill"></i>
+                    </div>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Admin</strong> added Summit report:
+                        <em
+                          >AfICTA Annual Summit 2025 — Outcomes &amp;
+                          Resolutions</em
+                        >
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>Yesterday, 1:30 PM
+                      </div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div
+                      class="activity-icon"
+                      style="background: #fce7f3; color: #9d174d"
+                    >
+                      <i class="bi bi-pencil-fill"></i>
+                    </div>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Admin</strong> edited Governance page — updated
+                        Board of Directors listing for FY2025
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>2 days ago, 11:00 AM
+                      </div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div
+                      class="activity-icon"
+                      style="background: #fee2e2; color: #b91c1c"
+                    >
+                      <i class="bi bi-trash-fill"></i>
+                    </div>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Admin</strong> archived News Article:
+                        <em
+                          >AfICTA Webinar Series 2024 — Registration Now
+                          Open</em
+                        >
+                      </div>
+                      <div class="activity-time">
+                        <i class="bi bi-clock me-1"></i>3 days ago, 9:05 AM
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end row -->
+        </main>
+        <!-- end page-content -->
+
+        <!-- FOOTER -->
+        <footer
+          style="
+            padding: 1rem 1.75rem;
+            border-top: 1px solid var(--gray-200);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          "
+        >
+          <span style="font-size: 0.75rem; color: var(--gray-600)"
+            >&copy; 2026 AfICTA — African ICT Alliance. All rights
+            reserved.</span
+          >
+          <span style="font-size: 0.75rem; color: var(--gray-600)"
+            >Admin Dashboard v1.0</span
+          >
+        </footer>
+      </div>
+      <!-- end main-content -->
+    </div>
+    <!-- end dash-shell -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/dash.js"></script>
+  </body>
+</html>

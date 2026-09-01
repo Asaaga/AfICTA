@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — AfICTA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+  <link href="assets/dash.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="sidebar-overlay"></div>
+<div class="dash-shell">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">
+      <div>
+        <div class="sidebar-brand-logo">Af<span>ICTA</span></div>
+        <span class="sidebar-brand-sub">Admin Panel</span>
+      </div>
+    </a>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a class="sidebar-link" href="index.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      <div class="nav-section-label">Content</div>
+      <a class="sidebar-link" href="news.html"><i class="bi bi-newspaper"></i> News Articles</a>
+      <a class="sidebar-link" href="newsletters.html"><i class="bi bi-envelope-paper"></i> Newsletters</a>
+      <a class="sidebar-link" href="slider.html"><i class="bi bi-images"></i> Hero Slider</a>
+      <div class="nav-section-label">Events &amp; Activities</div>
+      <a class="sidebar-link" href="summits.html"><i class="bi bi-trophy"></i> Summits</a>
+      <a class="sidebar-link active" href="events.html"><i class="bi bi-calendar-event"></i> Events</a>
+      <a class="sidebar-link" href="webinars.html"><i class="bi bi-camera-video"></i> Webinars</a>
+      <div class="nav-section-label">Membership</div>
+      <a class="sidebar-link" href="members.html"><i class="bi bi-people"></i> Members <span class="badge-count">3</span></a>
+      <a class="sidebar-link" href="governance.html"><i class="bi bi-person-badge"></i> Governance</a>
+      <div class="nav-section-label">System</div>
+      <a class="sidebar-link" href="messages.html"><i class="bi bi-chat-dots"></i> Messages <span class="badge-count">5</span></a>
+      <a class="sidebar-link" href="settings.html"><i class="bi bi-gear"></i> Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar"><i class="bi bi-person-fill"></i></div>
+        <div>
+          <div class="sidebar-user-name">Admin User</div>
+          <div class="sidebar-user-role">Super Admin</div>
+        </div>
+        <a href="login.html" class="sidebar-user-logout" title="Logout"><i class="bi bi-box-arrow-right"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+      </button>
+      <nav aria-label="breadcrumb" class="topbar-breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Events &amp; Activities</li>
+          <li class="breadcrumb-item active" aria-current="page">Events</li>
+        </ol>
+      </nav>
+      <div class="topbar-actions">
+        <button class="topbar-icon-btn" title="Notifications">
+          <i class="bi bi-bell"></i>
+          <span class="topbar-badge">2</span>
+        </button>
+        <button class="topbar-icon-btn" title="Messages">
+          <i class="bi bi-chat-dots"></i>
+          <span class="topbar-badge">5</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <main class="page-content">
+
+      <!-- ===== PAGE HEADER ===== -->
+      <div class="row align-items-center mb-4">
+        <div class="col">
+          <h4 class="page-title mb-1">Events Management</h4>
+          <p class="page-subtitle mb-0">Manage AfICTA events, workshops, conferences, and participation records.</p>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-green" data-bs-toggle="modal" data-bs-target="#addEventModal">
+            <i class="bi bi-plus-lg me-2"></i>Add New Event
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== STAT CARDS ===== -->
+      <div class="row g-3 mb-4">
+
+        <!-- Total Events -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="stat-card">
+            <div class="stat-card-icon" style="background: rgba(33, 150, 83, 0.12); color: #219653;">
+              <i class="bi bi-calendar3"></i>
+            </div>
+            <div class="stat-card-body">
+              <div class="stat-card-value">18</div>
+              <div class="stat-card-label">Total Events</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="stat-card">
+            <div class="stat-card-icon" style="background: rgba(242, 183, 5, 0.12); color: #c09a04;">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <div class="stat-card-body">
+              <div class="stat-card-value" style="color: #c09a04;">2</div>
+              <div class="stat-card-label">Upcoming Events</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Past Events -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="stat-card">
+            <div class="stat-card-icon" style="background: rgba(108, 117, 125, 0.12); color: #6c757d;">
+              <i class="bi bi-calendar-x"></i>
+            </div>
+            <div class="stat-card-body">
+              <div class="stat-card-value" style="color: #6c757d;">16</div>
+              <div class="stat-card-label">Past Events</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== EVENTS TABLE CARD ===== -->
+      <div class="dash-card mb-4">
+        <div class="dash-card-header">
+          <h6 class="dash-card-title mb-0">All Events</h6>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="px-3 pt-3">
+          <ul class="nav nav-tabs" id="eventFilterTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" data-filter="all" type="button" role="tab">
+                All Events
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-filter="upcoming" type="button" role="tab">
+                Upcoming
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-filter="past" type="button" role="tab">
+                Past
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="dash-card-body">
+          <div class="table-responsive">
+            <table id="eventsTable" class="table table-aficta dt-table w-100">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Event Title</th>
+                  <th>Type</th>
+                  <th>Location</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">AfICTA at IGF 2025 — Vilnius</div>
+                  </td>
+                  <td><span class="badge bg-primary">IGF Session</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Vilnius, Lithuania</td>
+                  <td><span style="white-space: nowrap;">8–12 Dec 2025</span></td>
+                  <td><span class="badge badge-upcoming">Upcoming</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">AfICTA WSIS+20 Forum Participation</div>
+                  </td>
+                  <td><span class="badge bg-info text-dark">WSIS Session</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Geneva, Switzerland</td>
+                  <td><span style="white-space: nowrap;">14–18 Jul 2025</span></td>
+                  <td><span class="badge badge-upcoming">Upcoming</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">Port Harcourt Tech Expo 2024</div>
+                  </td>
+                  <td><span class="badge bg-warning text-dark">Conference</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Port Harcourt, Nigeria</td>
+                  <td><span style="white-space: nowrap;">22–24 Nov 2024</span></td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>4</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">AfICTA at IGF 2024 — Riyadh</div>
+                  </td>
+                  <td><span class="badge bg-primary">IGF Session</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Riyadh, Saudi Arabia</td>
+                  <td><span style="white-space: nowrap;">15–19 Dec 2024</span></td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>5</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">Africa Digital Economy Forum</div>
+                  </td>
+                  <td><span class="badge bg-warning text-dark">Conference</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Nairobi, Kenya</td>
+                  <td><span style="white-space: nowrap;">5–6 Sep 2024</span></td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>6</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">WSIS Forum 2024 — AfICTA Session</div>
+                  </td>
+                  <td><span class="badge bg-info text-dark">WSIS Session</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Geneva, Switzerland</td>
+                  <td><span style="white-space: nowrap;">27–31 May 2024</span></td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>7</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">AfICTA at IGF 2023 — Kyoto</div>
+                  </td>
+                  <td><span class="badge bg-primary">IGF Session</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Kyoto, Japan</td>
+                  <td><span style="white-space: nowrap;">8–12 Oct 2023</span></td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>8</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">Pan-African Digital Inclusion Forum</div>
+                  </td>
+                  <td><span class="badge bg-success">Regional IGF</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Accra, Ghana</td>
+                  <td><span style="white-space: nowrap;">14–15 Jun 2023</span></td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>9</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">WSIS Forum 2023 — AfICTA Side Event</div>
+                  </td>
+                  <td><span class="badge bg-info text-dark">WSIS Session</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Geneva, Switzerland</td>
+                  <td><span style="white-space: nowrap;">13–17 Mar 2023</span></td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>10</td>
+                  <td>
+                    <div class="fw-semibold" style="font-size: 0.875rem;">AfICTA at IGF 2022 — Addis Ababa</div>
+                  </td>
+                  <td><span class="badge bg-primary">IGF Session</span></td>
+                  <td><i class="bi bi-geo-alt text-muted me-1"></i>Addis Ababa, Ethiopia</td>
+                  <td><span style="white-space: nowrap;">28 Nov–2 Dec 2022</span></td>
+                  <td><span class="badge badge-completed">Completed</span></td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-secondary btn-view" title="View"><i class="bi bi-eye"></i></button>
+                      <button class="btn btn-sm btn-outline-primary btn-edit" title="Edit"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger btn-delete" title="Delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CALENDAR WIDGET ===== -->
+      <div class="dash-card mb-4">
+        <div class="dash-card-header d-flex align-items-center justify-content-between">
+          <h6 class="dash-card-title mb-0">Event Calendar — September 2026</h6>
+          <div class="d-flex gap-1">
+            <button class="btn btn-sm btn-outline-secondary" title="Previous month" aria-label="Previous month">
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-secondary" title="Next month" aria-label="Next month">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="dash-card-body">
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-family: 'Open Sans', sans-serif; min-width: 420px;">
+              <thead>
+                <tr>
+                  <th style="text-align: center; padding: 8px 4px; font-size: 0.75rem; font-weight: 600; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em; width: 14.28%;">Sun</th>
+                  <th style="text-align: center; padding: 8px 4px; font-size: 0.75rem; font-weight: 600; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em; width: 14.28%;">Mon</th>
+                  <th style="text-align: center; padding: 8px 4px; font-size: 0.75rem; font-weight: 600; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em; width: 14.28%;">Tue</th>
+                  <th style="text-align: center; padding: 8px 4px; font-size: 0.75rem; font-weight: 600; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em; width: 14.28%;">Wed</th>
+                  <th style="text-align: center; padding: 8px 4px; font-size: 0.75rem; font-weight: 600; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em; width: 14.28%;">Thu</th>
+                  <th style="text-align: center; padding: 8px 4px; font-size: 0.75rem; font-weight: 600; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em; width: 14.28%;">Fri</th>
+                  <th style="text-align: center; padding: 8px 4px; font-size: 0.75rem; font-weight: 600; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em; width: 14.28%;">Sat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Week 1: Sep 1–6, starts on Tuesday -->
+                <tr>
+                  <td style="padding: 6px 4px; text-align: center; color: #ccc;"><!-- empty --></td>
+                  <td style="padding: 6px 4px; text-align: center; color: #ccc;"><!-- empty --></td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">1</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">2</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">3</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">4</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">5</span>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Week 2: Sep 6–12 -->
+                <tr>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">6</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">7</span>
+                    </div>
+                  </td>
+                  <!-- Day 8: IGF Vilnius -->
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 52px;">
+                      <span style="font-size: 0.85rem; font-weight: 700; color: #fff; background: #219653; border-radius: 50%; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 3px;">8</span>
+                      <span style="display: block; width: 7px; height: 7px; border-radius: 50%; background: #219653; margin-bottom: 2px;"></span>
+                      <span style="font-size: 0.6rem; color: #219653; font-weight: 600; line-height: 1.1; text-align: center; white-space: nowrap;">IGF Vilnius</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">9</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">10</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">11</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">12</span>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Week 3: Sep 13–19 -->
+                <tr>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">13</span>
+                    </div>
+                  </td>
+                  <!-- Day 14: WSIS+20 -->
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 52px;">
+                      <span style="font-size: 0.85rem; font-weight: 700; color: #fff; background: #c09a04; border-radius: 50%; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 3px;">14</span>
+                      <span style="display: block; width: 7px; height: 7px; border-radius: 50%; background: #c09a04; margin-bottom: 2px;"></span>
+                      <span style="font-size: 0.6rem; color: #c09a04; font-weight: 600; line-height: 1.1; text-align: center; white-space: nowrap;">WSIS+20</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">15</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">16</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">17</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">18</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">19</span>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Week 4: Sep 20–26 -->
+                <tr>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">20</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">21</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <!-- Highlight today: 1 Sep 2026 is already past; no special today highlight needed -->
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">22</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">23</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">24</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">25</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">26</span>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Week 5: Sep 27–30 -->
+                <tr>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">27</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">28</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">29</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center;">
+                    <div style="display: inline-flex; flex-direction: column; align-items: center; width: 36px;">
+                      <span style="font-size: 0.85rem; font-weight: 600; color: #1a1a2e;">30</span>
+                    </div>
+                  </td>
+                  <td style="padding: 6px 4px; text-align: center; color: #ccc;"><!-- empty --></td>
+                  <td style="padding: 6px 4px; text-align: center; color: #ccc;"><!-- empty --></td>
+                  <td style="padding: 6px 4px; text-align: center; color: #ccc;"><!-- empty --></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Calendar Legend -->
+          <div class="d-flex gap-4 mt-3 px-1" style="font-size: 0.78rem;">
+            <div class="d-flex align-items-center gap-2">
+              <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #219653;"></span>
+              <span style="color: #555;">IGF Vilnius (8 Sep)</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #c09a04;"></span>
+              <span style="color: #555;">WSIS+20 (14 Sep)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <!-- /page-content -->
+
+  </div>
+  <!-- /main-content -->
+
+</div>
+<!-- /dash-shell -->
+
+
+<!-- ===== ADD EVENT MODAL ===== -->
+<div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEventModalLabel">
+          <i class="bi bi-calendar-plus me-2 text-success"></i>Add New Event
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="addEventForm" novalidate>
+
+          <!-- ── Event Details ── -->
+          <div class="form-section mb-4">
+            <div class="form-section-title">
+              <i class="bi bi-info-circle me-2"></i>Event Details
+            </div>
+
+            <!-- Event Title -->
+            <div class="mb-3">
+              <label for="eventTitle" class="form-label">Event Title <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="eventTitle" name="eventTitle" placeholder="Enter full event title" required />
+              <div class="invalid-feedback">Event title is required.</div>
+            </div>
+
+            <!-- Event Type + Status -->
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <label for="eventType" class="form-label">Event Type <span class="text-danger">*</span></label>
+                <select class="form-select" id="eventType" name="eventType" required>
+                  <option value="" selected disabled>Select event type</option>
+                  <option value="igf_workshop">IGF Workshop</option>
+                  <option value="wsis_session">WSIS Session</option>
+                  <option value="regional_igf">Regional IGF</option>
+                  <option value="conference">Conference</option>
+                  <option value="seminar">Seminar</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="invalid-feedback">Please select an event type.</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="eventStatus" class="form-label">Status <span class="text-danger">*</span></label>
+                <select class="form-select" id="eventStatus" name="eventStatus" required>
+                  <option value="" selected disabled>Select status</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+                <div class="invalid-feedback">Please select a status.</div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label for="eventDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3" placeholder="Provide a brief description of the event, its goals, and expected outcomes..."></textarea>
+            </div>
+          </div>
+
+          <!-- ── Location ── -->
+          <div class="form-section mb-4">
+            <div class="form-section-title">
+              <i class="bi bi-geo-alt me-2"></i>Location
+            </div>
+
+            <!-- Virtual Event toggle -->
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="isVirtual" name="isVirtual" />
+              <label class="form-check-label" for="isVirtual">
+                Virtual Event <span class="text-muted" style="font-size: 0.82rem;">(hide physical location fields)</span>
+              </label>
+            </div>
+
+            <!-- Physical Location -->
+            <div id="physicalLocation">
+              <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                  <label for="eventCity" class="form-label">City</label>
+                  <input type="text" class="form-control" id="eventCity" name="eventCity" placeholder="e.g. Nairobi" />
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="eventCountry" class="form-label">Country</label>
+                  <select class="form-select" id="eventCountry" name="eventCountry">
+                    <option value="" selected disabled>Select country</option>
+                    <optgroup label="Africa">
+                      <option value="NG">Nigeria</option>
+                      <option value="KE">Kenya</option>
+                      <option value="GH">Ghana</option>
+                      <option value="ET">Ethiopia</option>
+                      <option value="SN">Senegal</option>
+                      <option value="EG">Egypt</option>
+                      <option value="ZA">South Africa</option>
+                      <option value="UG">Uganda</option>
+                      <option value="TZ">Tanzania</option>
+                      <option value="RW">Rwanda</option>
+                    </optgroup>
+                    <optgroup label="International">
+                      <option value="CH">Switzerland</option>
+                      <option value="JP">Japan</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="LT">Lithuania</option>
+                      <option value="US">United States</option>
+                      <option value="other">Other</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Virtual Platform URL (always visible) -->
+            <div class="mb-3">
+              <label for="virtualUrl" class="form-label">Virtual Platform URL</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-link-45deg"></i></span>
+                <input type="url" class="form-control" id="virtualUrl" name="virtualUrl" placeholder="https://zoom.us/j/..." />
+              </div>
+              <div class="form-text">Provide a meeting link if the event has a virtual component.</div>
+            </div>
+          </div>
+
+          <!-- ── Schedule ── -->
+          <div class="form-section mb-4">
+            <div class="form-section-title">
+              <i class="bi bi-clock me-2"></i>Schedule
+            </div>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="eventStartDate" class="form-label">Start Date &amp; Time <span class="text-danger">*</span></label>
+                <input type="datetime-local" class="form-control" id="eventStartDate" name="eventStartDate" required />
+                <div class="invalid-feedback">Please select a start date and time.</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="eventEndDate" class="form-label">End Date &amp; Time <span class="text-danger">*</span></label>
+                <input type="datetime-local" class="form-control" id="eventEndDate" name="eventEndDate" required />
+                <div class="invalid-feedback">Please select an end date and time.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Additional Details ── -->
+          <div class="form-section mb-2">
+            <div class="form-section-title">
+              <i class="bi bi-card-list me-2"></i>Additional Details
+            </div>
+
+            <!-- Registration URL -->
+            <div class="mb-3">
+              <label for="registrationUrl" class="form-label">Registration URL</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-check"></i></span>
+                <input type="url" class="form-control" id="registrationUrl" name="registrationUrl" placeholder="https://example.com/register" />
+              </div>
+            </div>
+
+            <!-- Keynote Speakers -->
+            <div class="mb-3">
+              <label for="keynoteSpeakers" class="form-label">Keynote Speakers</label>
+              <textarea class="form-control" id="keynoteSpeakers" name="keynoteSpeakers" rows="2" placeholder="List keynote speakers separated by line breaks&#10;e.g. Dr. Adewale Adeyinka&#10;Prof. Amara Nwosu"></textarea>
+              <div class="form-text">Enter one speaker per line.</div>
+            </div>
+
+            <!-- Upload Zone -->
+            <div class="mb-3">
+              <label class="form-label">Event Report / Documents</label>
+              <div class="upload-zone" id="eventUploadZone" role="button" tabindex="0" aria-label="Upload event report or documents">
+                <div class="upload-zone-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+                <div class="upload-zone-text">Drag &amp; drop event report or documents here</div>
+                <div class="upload-zone-sub">or <span class="upload-zone-browse">click to browse</span></div>
+                <div class="upload-zone-hint mt-1">Supported: PDF, DOCX, PPTX, XLSX — Max 20 MB per file</div>
+              </div>
+              <input type="file" id="eventDocInput" name="eventDocInput" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx" class="d-none" />
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+          <i class="bi bi-x-lg me-1"></i>Cancel
+        </button>
+        <button type="button" class="btn btn-gold" id="saveDraftBtn">
+          <i class="bi bi-save me-1"></i>Save as Draft
+        </button>
+        <button type="button" class="btn btn-green" id="savePublishBtn">
+          <i class="bi bi-check-circle me-1"></i>Save &amp; Publish
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- /addEventModal -->
+
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/dash.js"></script>
+
+<script>
+  (function () {
+    "use strict";
+
+    // ── DataTable init ──────────────────────────────────────────────
+    var eventsTable = $("#eventsTable").DataTable({
+      pageLength: 10,
+      lengthMenu: [5, 10, 25, 50],
+      order: [[0, "asc"]],
+      columnDefs: [
+        { orderable: false, targets: [6] }  // Actions column not sortable
+      ],
+      language: {
+        search: "",
+        searchPlaceholder: "Search events...",
+        lengthMenu: "Show _MENU_ events",
+        info: "Showing _START_ to _END_ of _TOTAL_ events",
+        emptyTable: "No events found matching the selected filter."
+      },
+      dom: "<\"d-flex justify-content-between align-items-center mb-3\"lf>rtip"
+    });
+
+    // ── Tab filter logic ────────────────────────────────────────────
+    // Status column index is 5 (zero-based)
+    var STATUS_COL = 5;
+
+    $("#eventFilterTabs .nav-link").on("click", function () {
+      // Update active tab
+      $("#eventFilterTabs .nav-link").removeClass("active");
+      $(this).addClass("active");
+
+      var filter = $(this).data("filter");
+
+      if (filter === "all") {
+        eventsTable.column(STATUS_COL).search("").draw();
+      } else if (filter === "upcoming") {
+        eventsTable.column(STATUS_COL).search("Upcoming", false, false).draw();
+      } else if (filter === "past") {
+        eventsTable.column(STATUS_COL).search("Completed", false, false).draw();
+      }
+    });
+
+    // ── Virtual Event toggle ────────────────────────────────────────
+    var $isVirtual = $("#isVirtual");
+    var $physicalLocation = $("#physicalLocation");
+
+    $isVirtual.on("change", function () {
+      if (this.checked) {
+        $physicalLocation.slideUp(200);
+      } else {
+        $physicalLocation.slideDown(200);
+      }
+    });
+
+    // ── Upload zone click handler ────────────────────────────────────
+    var $uploadZone = $("#eventUploadZone");
+    var $fileInput  = $("#eventDocInput");
+
+    $uploadZone.on("click", function () {
+      $fileInput.trigger("click");
+    });
+
+    $uploadZone.on("keydown", function (e) {
+      // Allow activation via Enter or Space
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        $fileInput.trigger("click");
+      }
+    });
+
+    // Drag-and-drop visual feedback
+    $uploadZone.on("dragover dragenter", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).addClass("upload-zone--drag");
+    });
+
+    $uploadZone.on("dragleave dragend drop", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).removeClass("upload-zone--drag");
+    });
+
+    $uploadZone.on("drop", function (e) {
+      var files = e.originalEvent.dataTransfer.files;
+      if (files && files.length > 0) {
+        // Transfer dropped files to the hidden input (read-only copy for display)
+        showUploadedFiles(files);
+      }
+    });
+
+    $fileInput.on("change", function () {
+      if (this.files && this.files.length > 0) {
+        showUploadedFiles(this.files);
+      }
+    });
+
+    function showUploadedFiles(files) {
+      var names = [];
+      for (var i = 0; i < files.length; i++) {
+        names.push(files[i].name);
+      }
+      var $hint = $uploadZone.find(".upload-zone-hint");
+      $hint.html(
+        "<i class=\"bi bi-check-circle-fill text-success me-1\"></i>" +
+        names.join(", ")
+      );
+    }
+
+    // ── Save buttons ─────────────────────────────────────────────────
+    $("#saveDraftBtn").on("click", function () {
+      // Basic validation stub — in production, submit to API
+      var title = $("#eventTitle").val().trim();
+      if (!title) {
+        $("#eventTitle").addClass("is-invalid").focus();
+        return;
+      }
+      $("#eventTitle").removeClass("is-invalid");
+      var toast = new bootstrap.Toast(
+        Object.assign(document.createElement("div"), {
+          className: "toast align-items-center text-bg-secondary border-0 position-fixed bottom-0 end-0 m-3",
+          innerHTML:
+            "<div class=\"d-flex\"><div class=\"toast-body\"><i class=\"bi bi-save me-2\"></i>Draft saved successfully.</div>" +
+            "<button type=\"button\" class=\"btn-close btn-close-white me-2 m-auto\" data-bs-dismiss=\"toast\"></button></div>",
+          setAttribute: function (a, b) { this[a] = b; }
+        })
+      );
+      document.body.appendChild(toast._element || toast);
+      // Fallback simple feedback
+      alert("Event saved as draft.");
+      bootstrap.Modal.getInstance(document.getElementById("addEventModal")).hide();
+    });
+
+    $("#savePublishBtn").on("click", function () {
+      var form = document.getElementById("addEventForm");
+      if (!form.checkValidity()) {
+        form.classList.add("was-validated");
+        return;
+      }
+      alert("Event saved and published successfully.");
+      bootstrap.Modal.getInstance(document.getElementById("addEventModal")).hide();
+    });
+
+    // Reset validation state when modal is closed
+    document.getElementById("addEventModal").addEventListener("hidden.bs.modal", function () {
+      var form = document.getElementById("addEventForm");
+      form.reset();
+      form.classList.remove("was-validated");
+      $physicalLocation.show();
+      $isVirtual.prop("checked", false);
+      $uploadZone.find(".upload-zone-hint").text("Supported: PDF, DOCX, PPTX, XLSX — Max 20 MB per file");
+    });
+
+  })();
+</script>
+
+</body>
+</html>

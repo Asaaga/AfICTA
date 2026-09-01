@@ -1,0 +1,1753 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summits — AfICTA Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+    <link href="../assets/dash.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="sidebar-overlay"></div>
+    <div class="dash-shell">
+      <aside class="sidebar">
+        <a href="index.html" class="sidebar-brand">
+          <div>
+            <div class="sidebar-brand-logo">Af<span>ICTA</span></div>
+            <span class="sidebar-brand-sub">Admin Panel</span>
+          </div>
+        </a>
+        <nav class="sidebar-nav">
+          <div class="nav-section-label">Main</div>
+          <a class="sidebar-link" href="index.html"
+            ><i class="bi bi-speedometer2"></i> Dashboard</a
+          >
+          <div class="nav-section-label">Content</div>
+          <a class="sidebar-link" href="news.html"
+            ><i class="bi bi-newspaper"></i> News Articles</a
+          >
+          <a class="sidebar-link" href="newsletters.html"
+            ><i class="bi bi-envelope-paper"></i> Newsletters</a
+          >
+          <a class="sidebar-link" href="slider.html"
+            ><i class="bi bi-images"></i> Hero Slider</a
+          >
+          <div class="nav-section-label">Events &amp; Activities</div>
+          <a class="sidebar-link active" href="summits.html"
+            ><i class="bi bi-trophy"></i> Summits</a
+          >
+          <a class="sidebar-link" href="events.html"
+            ><i class="bi bi-calendar-event"></i> Events</a
+          >
+          <a class="sidebar-link" href="webinars.html"
+            ><i class="bi bi-camera-video"></i> Webinars</a
+          >
+          <div class="nav-section-label">Membership</div>
+          <a class="sidebar-link" href="members.html"
+            ><i class="bi bi-people"></i> Members
+            <span class="badge-count">3</span></a
+          >
+          <a class="sidebar-link" href="governance.html"
+            ><i class="bi bi-person-badge"></i> Governance</a
+          >
+          <div class="nav-section-label">System</div>
+          <a class="sidebar-link" href="messages.html"
+            ><i class="bi bi-chat-dots"></i> Messages
+            <span class="badge-count">5</span></a
+          >
+          <a class="sidebar-link" href="settings.html"
+            ><i class="bi bi-gear"></i> Settings</a
+          >
+        </nav>
+        <div class="sidebar-footer">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div>
+              <div class="sidebar-user-name">Admin User</div>
+              <div class="sidebar-user-role">Super Admin</div>
+            </div>
+            <a href="login.html" class="sidebar-user-logout" title="Logout"
+              ><i class="bi bi-box-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <header class="topbar">
+          <button class="topbar-toggle"><i class="bi bi-list"></i></button>
+          <div class="topbar-breadcrumb">Events &amp; Activities / Summits</div>
+          <div class="topbar-actions">
+            <button class="topbar-btn" title="Notifications">
+              <i class="bi bi-bell"></i><span class="topbar-notif-dot"></span>
+            </button>
+            <a
+              href="../index.html"
+              class="topbar-btn"
+              title="View Website"
+              target="_blank"
+              ><i class="bi bi-box-arrow-up-right"></i
+            ></a>
+            <div class="topbar-user">
+              <div class="topbar-user-avatar">
+                <i class="bi bi-person-fill"></i>
+              </div>
+              <span class="topbar-user-name d-none d-md-block">Admin</span>
+            </div>
+          </div>
+        </header>
+
+        <main class="page-content">
+          <!-- Page Header -->
+          <div class="row align-items-center mb-4">
+            <div class="col">
+              <h4 class="page-title mb-1">Summits Management</h4>
+              <small class="text-muted"
+                >Manage AfICTA annual summit records, documents, and
+                details.</small
+              >
+            </div>
+            <div class="col-auto">
+              <button
+                class="btn-green"
+                data-bs-toggle="modal"
+                data-bs-target="#addSummitModal"
+              >
+                <i class="bi bi-plus-lg me-1"></i> Add New Summit
+              </button>
+            </div>
+          </div>
+
+          <!-- Stat Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="bi bi-trophy"></i>
+                </div>
+                <div>
+                  <div class="stat-value">13</div>
+                  <div class="stat-label">Total Summits</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div
+                  class="stat-icon"
+                  style="background: rgba(255, 193, 7, 0.12); color: #e6ac00"
+                >
+                  <i class="bi bi-calendar-check"></i>
+                </div>
+                <div>
+                  <div class="stat-value">1</div>
+                  <div class="stat-label">Upcoming Summit</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div
+                  class="stat-icon"
+                  style="background: rgba(40, 167, 69, 0.12); color: #1e8a3c"
+                >
+                  <i class="bi bi-file-earmark-text"></i>
+                </div>
+                <div>
+                  <div class="stat-value">47</div>
+                  <div class="stat-label">Documents Uploaded</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- All Summits Table Card -->
+          <div class="dash-card mb-4">
+            <div class="dash-card-header">All Summits</div>
+            <div class="dash-card-body">
+              <div class="table-responsive">
+                <table id="summitsTable" class="table-aficta dt-table w-100">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Edition</th>
+                      <th>Year</th>
+                      <th>Title &amp; Location</th>
+                      <th>Theme</th>
+                      <th>Status</th>
+                      <th>Docs</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td><strong>13th</strong></td>
+                      <td>2025</td>
+                      <td>
+                        <div><strong>13th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Kigali,
+                          Rwanda</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Harnessing Digital Technologies for Sustainable Development in Africa"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Harnessing Digital Technologies for Sustainable
+                          Development in Africa
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-upcoming"
+                          >Upcoming</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">3</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td><strong>12th</strong></td>
+                      <td>2024</td>
+                      <td>
+                        <div><strong>12th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Abuja,
+                          Nigeria</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Bridging Africa's Digital Divide: Inclusive Connectivity for All"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Bridging Africa's Digital Divide: Inclusive
+                          Connectivity for All
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">5</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td><strong>11th</strong></td>
+                      <td>2023</td>
+                      <td>
+                        <div><strong>11th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Nairobi,
+                          Kenya</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Cybersecurity and Data Governance in the Digital Age"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Cybersecurity and Data Governance in the Digital Age
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">4</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td><strong>10th</strong></td>
+                      <td>2022</td>
+                      <td>
+                        <div><strong>10th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Accra,
+                          Ghana</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Digital Economy and E-Commerce in Post-Pandemic Africa"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Digital Economy and E-Commerce in Post-Pandemic Africa
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">4</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td><strong>9th</strong></td>
+                      <td>2021</td>
+                      <td>
+                        <div><strong>9th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Virtual
+                          (Zoom)</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Digital Transformation During COVID-19 and Beyond"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Digital Transformation During COVID-19 and Beyond
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">3</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td><strong>8th</strong></td>
+                      <td>2020</td>
+                      <td>
+                        <div><strong>8th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Virtual</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="COVID-19 Response: Africa's ICT Resilience"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          COVID-19 Response: Africa's ICT Resilience
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">3</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td><strong>7th</strong></td>
+                      <td>2019</td>
+                      <td>
+                        <div><strong>7th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Dakar,
+                          Senegal</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Artificial Intelligence and the Future of Work in Africa"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Artificial Intelligence and the Future of Work in
+                          Africa
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">4</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td><strong>6th</strong></td>
+                      <td>2018</td>
+                      <td>
+                        <div><strong>6th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Addis Ababa,
+                          Ethiopia</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Building Africa's Digital Infrastructure"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Building Africa's Digital Infrastructure
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">4</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td><strong>5th</strong></td>
+                      <td>2017</td>
+                      <td>
+                        <div><strong>5th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Cairo,
+                          Egypt</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="E-Government and Digital Public Services"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          E-Government and Digital Public Services
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">3</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td><strong>4th</strong></td>
+                      <td>2016</td>
+                      <td>
+                        <div><strong>4th AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Johannesburg,
+                          South Africa</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Broadband for Africa: Enabling the Digital Economy"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Broadband for Africa: Enabling the Digital Economy
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">3</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>11</td>
+                      <td><strong>3rd</strong></td>
+                      <td>2015</td>
+                      <td>
+                        <div><strong>3rd AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Lagos,
+                          Nigeria</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Africa's ICT Policy Landscape: Harmonisation and Progress"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Africa's ICT Policy Landscape: Harmonisation and
+                          Progress
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">2</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>12</td>
+                      <td><strong>2nd</strong></td>
+                      <td>2014</td>
+                      <td>
+                        <div><strong>2nd AfICTA Summit</strong></div>
+                        <small class="text-muted"
+                          ><i class="bi bi-geo-alt-fill me-1"></i>Kampala,
+                          Uganda</small
+                        >
+                      </td>
+                      <td>
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Connecting Africa: Telecommunications and Internet Growth"
+                          style="
+                            cursor: default;
+                            display: inline-block;
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            vertical-align: middle;
+                          "
+                        >
+                          Connecting Africa: Telecommunications and Internet
+                          Growth
+                        </span>
+                      </td>
+                      <td>
+                        <span class="badge-status badge-completed"
+                          >Completed</span
+                        >
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark border">2</span>
+                      </td>
+                      <td>
+                        <button class="btn-action btn-view" title="View">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn-action btn-edit" title="Edit">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn-action btn-delete" title="Delete">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summit Documents Manager Card -->
+          <div class="dash-card mb-4">
+            <div class="dash-card-header">Summit Documents Manager</div>
+            <div class="dash-card-body">
+              <!-- Nav Tabs -->
+              <ul class="nav nav-tabs mb-3" id="summitDocsTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="tab-2025-btn"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab-2025"
+                    type="button"
+                    role="tab"
+                    aria-controls="tab-2025"
+                    aria-selected="true"
+                  >
+                    2025 — 13th Summit
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="tab-2024-btn"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab-2024"
+                    type="button"
+                    role="tab"
+                    aria-controls="tab-2024"
+                    aria-selected="false"
+                  >
+                    2024 — 12th Summit
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="tab-2023-btn"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab-2023"
+                    type="button"
+                    role="tab"
+                    aria-controls="tab-2023"
+                    aria-selected="false"
+                  >
+                    2023 — 11th Summit
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="summitDocsTabContent">
+                <!-- 2025 Tab -->
+                <div
+                  class="tab-pane fade show active"
+                  id="tab-2025"
+                  role="tabpanel"
+                  aria-labelledby="tab-2025-btn"
+                >
+                  <div class="d-flex justify-content-end mb-2">
+                    <button class="btn-outline-green btn-sm">
+                      <i class="bi bi-plus-lg me-1"></i> Add Document
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-sm table-bordered align-middle">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Document Type</th>
+                          <th>Title</th>
+                          <th>File / Link</th>
+                          <th>Uploaded</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-primary bg-opacity-10 text-primary"
+                              >Programme / Agenda</span
+                            >
+                          </td>
+                          <td>13th AfICTA Summit — Programme &amp; Agenda</td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF Link</a
+                            >
+                          </td>
+                          <td>15 Mar 2025</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="badge bg-info bg-opacity-10 text-info"
+                              >Concept Note</span
+                            >
+                          </td>
+                          <td>13th AfICTA Summit Concept Note</td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>10 Jan 2025</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-success bg-opacity-10 text-success"
+                              >Communiqué</span
+                            >
+                          </td>
+                          <td>Draft Communiqué — 13th AfICTA Summit</td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>20 Jun 2025</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- 2024 Tab -->
+                <div
+                  class="tab-pane fade"
+                  id="tab-2024"
+                  role="tabpanel"
+                  aria-labelledby="tab-2024-btn"
+                >
+                  <div class="d-flex justify-content-end mb-2">
+                    <button class="btn-outline-green btn-sm">
+                      <i class="bi bi-plus-lg me-1"></i> Add Document
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-sm table-bordered align-middle">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Document Type</th>
+                          <th>Title</th>
+                          <th>File / Link</th>
+                          <th>Uploaded</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-primary bg-opacity-10 text-primary"
+                              >Programme / Agenda</span
+                            >
+                          </td>
+                          <td>12th AfICTA Summit — Programme &amp; Agenda</td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>08 Feb 2024</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="badge bg-info bg-opacity-10 text-info"
+                              >Concept Note</span
+                            >
+                          </td>
+                          <td>
+                            12th AfICTA Summit Concept Note — Inclusive
+                            Connectivity
+                          </td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>15 Jan 2024</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-success bg-opacity-10 text-success"
+                              >Communiqué (Final)</span
+                            >
+                          </td>
+                          <td>
+                            Final Communiqué — 12th AfICTA Summit, Abuja 2024
+                          </td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>22 Apr 2024</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-warning bg-opacity-10 text-warning"
+                              >Presentations</span
+                            >
+                          </td>
+                          <td>
+                            12th AfICTA Summit — Keynote &amp; Panel
+                            Presentations
+                          </td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-slides text-warning me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>25 Apr 2024</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-secondary bg-opacity-10 text-secondary"
+                              >Photo Gallery</span
+                            >
+                          </td>
+                          <td>
+                            12th AfICTA Summit — Photo Gallery, Abuja 2024
+                          </td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i class="bi bi-images text-secondary me-1"></i
+                              >Gallery Link</a
+                            >
+                          </td>
+                          <td>30 Apr 2024</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- 2023 Tab -->
+                <div
+                  class="tab-pane fade"
+                  id="tab-2023"
+                  role="tabpanel"
+                  aria-labelledby="tab-2023-btn"
+                >
+                  <div class="d-flex justify-content-end mb-2">
+                    <button class="btn-outline-green btn-sm">
+                      <i class="bi bi-plus-lg me-1"></i> Add Document
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-sm table-bordered align-middle">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Document Type</th>
+                          <th>Title</th>
+                          <th>File / Link</th>
+                          <th>Uploaded</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-primary bg-opacity-10 text-primary"
+                              >Programme / Agenda</span
+                            >
+                          </td>
+                          <td>
+                            11th AfICTA Summit — Programme &amp; Agenda, Nairobi
+                            2023
+                          </td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>12 Mar 2023</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="badge bg-info bg-opacity-10 text-info"
+                              >Concept Note</span
+                            >
+                          </td>
+                          <td>
+                            11th AfICTA Summit Concept Note — Cybersecurity
+                            &amp; Data Governance
+                          </td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>20 Jan 2023</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-success bg-opacity-10 text-success"
+                              >Communiqué</span
+                            >
+                          </td>
+                          <td>
+                            Final Communiqué — 11th AfICTA Summit, Nairobi 2023
+                          </td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-pdf text-danger me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>18 May 2023</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="badge bg-warning bg-opacity-10 text-warning"
+                              >Presentations</span
+                            >
+                          </td>
+                          <td>
+                            11th AfICTA Summit — Keynote &amp; Technical Session
+                            Presentations
+                          </td>
+                          <td>
+                            <a href="#" class="text-decoration-none"
+                              ><i
+                                class="bi bi-file-earmark-slides text-warning me-1"
+                              ></i
+                              >PDF</a
+                            >
+                          </td>
+                          <td>20 May 2023</td>
+                          <td>
+                            <button class="btn-action btn-view" title="View">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button
+                              class="btn-action btn-delete"
+                              title="Delete"
+                            >
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- /.tab-content -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Add Summit Modal -->
+    <div
+      class="modal fade"
+      id="addSummitModal"
+      tabindex="-1"
+      aria-labelledby="addSummitModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addSummitModalLabel">Add New Summit</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addSummitForm" novalidate>
+              <!-- form-section: Summit Information -->
+              <div class="form-section mb-4">
+                <h6 class="form-section-title">Summit Information</h6>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label for="editionNumber" class="form-label"
+                      >Edition Number</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="editionNumber"
+                      name="editionNumber"
+                      placeholder="e.g. 14"
+                      min="1"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="summitYear" class="form-label">Year</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="summitYear"
+                      name="summitYear"
+                      placeholder="e.g. 2026"
+                      min="2000"
+                      max="2099"
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="summitTitle" class="form-label"
+                    >Summit Title</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="summitTitle"
+                    name="summitTitle"
+                    placeholder="e.g. 14th AfICTA Annual Summit"
+                  />
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label for="summitCity" class="form-label"
+                      >Location / City</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="summitCity"
+                      name="summitCity"
+                      placeholder="e.g. Nairobi"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="summitCountry" class="form-label"
+                      >Country</label
+                    >
+                    <select
+                      class="form-select"
+                      id="summitCountry"
+                      name="summitCountry"
+                    >
+                      <option value="" disabled selected>
+                        Select country...
+                      </option>
+                      <option value="Nigeria">Nigeria</option>
+                      <option value="Kenya">Kenya</option>
+                      <option value="Ghana">Ghana</option>
+                      <option value="Rwanda">Rwanda</option>
+                      <option value="Ethiopia">Ethiopia</option>
+                      <option value="Senegal">Senegal</option>
+                      <option value="Egypt">Egypt</option>
+                      <option value="South Africa">South Africa</option>
+                      <option value="Uganda">Uganda</option>
+                      <option value="Tanzania">Tanzania</option>
+                      <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                      <option value="Morocco">Morocco</option>
+                      <option value="Tunisia">Tunisia</option>
+                      <option value="Cameroon">Cameroon</option>
+                      <option value="Angola">Angola</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label for="summitStartDate" class="form-label"
+                      >Start Date</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="summitStartDate"
+                      name="summitStartDate"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="summitEndDate" class="form-label"
+                      >End Date</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="summitEndDate"
+                      name="summitEndDate"
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="summitTheme" class="form-label">Theme</label>
+                  <textarea
+                    class="form-control"
+                    id="summitTheme"
+                    name="summitTheme"
+                    rows="2"
+                    placeholder="Enter the summit theme..."
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="summitDescription" class="form-label"
+                    >Description</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="summitDescription"
+                    name="summitDescription"
+                    rows="3"
+                    placeholder="Provide a brief description of the summit objectives and scope..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- form-section: Summit Image -->
+              <div class="form-section mb-4">
+                <h6 class="form-section-title">Summit Image</h6>
+                <div
+                  class="upload-zone d-flex flex-column align-items-center justify-content-center text-center p-4 rounded border border-dashed"
+                  id="summitImageUploadZone"
+                  style="
+                    cursor: pointer;
+                    border-style: dashed !important;
+                    min-height: 140px;
+                    background: #f8f9fa;
+                  "
+                >
+                  <i class="bi bi-cloud-upload fs-2 mb-2 text-muted"></i>
+                  <div class="fw-semibold text-muted mb-1">
+                    Drag &amp; drop summit image here or click to browse
+                  </div>
+                  <small class="text-muted"
+                    >Recommended: 1200×630px, JPG or PNG, max 5MB</small
+                  >
+                  <input
+                    type="file"
+                    id="summitImageFile"
+                    name="summitImageFile"
+                    accept="image/jpeg,image/png"
+                    class="d-none"
+                  />
+                </div>
+              </div>
+
+              <!-- form-section: Status & Visibility -->
+              <div class="form-section mb-4">
+                <h6 class="form-section-title">Status &amp; Visibility</h6>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label for="summitStatus" class="form-label">Status</label>
+                    <select
+                      class="form-select"
+                      id="summitStatus"
+                      name="summitStatus"
+                    >
+                      <option value="" disabled selected>
+                        Select status...
+                      </option>
+                      <option value="upcoming">Upcoming</option>
+                      <option value="completed">Completed</option>
+                      <option value="cancelled">Cancelled</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="summitWebpageUrl" class="form-label"
+                      >Webpage URL</label
+                    >
+                    <input
+                      type="url"
+                      class="form-control"
+                      id="summitWebpageUrl"
+                      name="summitWebpageUrl"
+                      placeholder="https://..."
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="summitNotes" class="form-label">Notes</label>
+                  <textarea
+                    class="form-control"
+                    id="summitNotes"
+                    name="summitNotes"
+                    rows="2"
+                    placeholder="Internal notes (not shown on website)..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- form-section: Documents -->
+              <div class="form-section mb-2">
+                <div
+                  class="d-flex align-items-center justify-content-between mb-3"
+                >
+                  <h6 class="form-section-title mb-0">Documents</h6>
+                  <button
+                    type="button"
+                    class="btn-outline-green btn-sm"
+                    id="addDocumentBtn"
+                  >
+                    <i class="bi bi-plus-lg me-1"></i> Add another document
+                  </button>
+                </div>
+                <p class="text-muted small mb-3">Attach Documents</p>
+
+                <div id="documentsList">
+                  <!-- Document Row 1 -->
+                  <div
+                    class="document-entry row g-2 align-items-end mb-3 p-3 rounded"
+                    style="background: #f8f9fa; border: 1px solid #e9ecef"
+                  >
+                    <div class="col-md-4">
+                      <label class="form-label">Document Type</label>
+                      <select
+                        class="form-select form-select-sm"
+                        name="docType[]"
+                      >
+                        <option value="" disabled selected>
+                          Select type...
+                        </option>
+                        <option value="programme">Programme / Agenda</option>
+                        <option value="concept-note">Concept Note</option>
+                        <option value="communique">Communiqué</option>
+                        <option value="presentations">Presentations</option>
+                        <option value="photo-gallery">Photo Gallery</option>
+                        <option value="press-release">Press Release</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Document Title</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        name="docTitle[]"
+                        placeholder="e.g. Summit Programme 2026"
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">File Upload</label>
+                      <input
+                        type="file"
+                        class="form-control form-control-sm"
+                        name="docFile[]"
+                        accept=".pdf,.ppt,.pptx,.jpg,.jpeg,.png,.zip"
+                      />
+                    </div>
+                    <div class="col-md-1 d-flex align-items-end">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-danger remove-document-btn w-100"
+                        title="Remove this document"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Document Row 2 -->
+                  <div
+                    class="document-entry row g-2 align-items-end mb-3 p-3 rounded"
+                    style="background: #f8f9fa; border: 1px solid #e9ecef"
+                  >
+                    <div class="col-md-4">
+                      <label class="form-label">Document Type</label>
+                      <select
+                        class="form-select form-select-sm"
+                        name="docType[]"
+                      >
+                        <option value="" disabled selected>
+                          Select type...
+                        </option>
+                        <option value="programme">Programme / Agenda</option>
+                        <option value="concept-note">Concept Note</option>
+                        <option value="communique">Communiqué</option>
+                        <option value="presentations">Presentations</option>
+                        <option value="photo-gallery">Photo Gallery</option>
+                        <option value="press-release">Press Release</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Document Title</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        name="docTitle[]"
+                        placeholder="e.g. Summit Concept Note 2026"
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">File Upload</label>
+                      <input
+                        type="file"
+                        class="form-control form-control-sm"
+                        name="docFile[]"
+                        accept=".pdf,.ppt,.pptx,.jpg,.jpeg,.png,.zip"
+                      />
+                    </div>
+                    <div class="col-md-1 d-flex align-items-end">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-danger remove-document-btn w-100"
+                        title="Remove this document"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- /#documentsList -->
+              </div>
+            </form>
+          </div>
+          <!-- /.modal-body -->
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn-gold">Save as Draft</button>
+            <button type="button" class="btn-green">Save &amp; Publish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../assets/dash.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Initialise DataTable on #summitsTable
+        $("#summitsTable").DataTable({
+          pageLength: 10,
+          responsive: true,
+          columnDefs: [{ orderable: false, targets: [7] }],
+          language: {
+            search: "Search summits:",
+            lengthMenu: "Show _MENU_ summits",
+            info: "Showing _START_ to _END_ of _TOTAL_ summits",
+            infoEmpty: "No summits found",
+            zeroRecords: "No matching summits found",
+          },
+        });
+
+        // Initialise Bootstrap tooltips for theme column truncation
+        var tooltipTriggerList = [].slice.call(
+          document.querySelectorAll('[data-bs-toggle="tooltip"]'),
+        );
+        tooltipTriggerList.forEach(function (el) {
+          new bootstrap.Tooltip(el);
+        });
+
+        // Summit image upload zone click-to-browse
+        $("#summitImageUploadZone").on("click", function () {
+          $("#summitImageFile").trigger("click");
+        });
+
+        $("#summitImageFile").on("change", function () {
+          var file = this.files[0];
+          if (file) {
+            var label = $("#summitImageUploadZone").find(".fw-semibold");
+            label.text("Selected: " + file.name);
+          }
+        });
+
+        // Add another document row by cloning the first document entry
+        $("#addDocumentBtn").on("click", function () {
+          var $firstEntry = $("#documentsList .document-entry").first();
+          var $clone = $firstEntry.clone(true);
+
+          // Reset values in the cloned row
+          $clone.find("select").val("");
+          $clone.find('input[type="text"]').val("");
+          $clone.find('input[type="file"]').val("");
+
+          // Append the cloned row to the documents list
+          $("#documentsList").append($clone);
+        });
+
+        // Remove a document entry row
+        $(document).on("click", ".remove-document-btn", function () {
+          var $entries = $("#documentsList .document-entry");
+          if ($entries.length > 1) {
+            $(this).closest(".document-entry").remove();
+          } else {
+            // If only one row remains, just reset its fields instead of removing
+            var $entry = $(this).closest(".document-entry");
+            $entry.find("select").val("");
+            $entry.find('input[type="text"]').val("");
+            $entry.find('input[type="file"]').val("");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

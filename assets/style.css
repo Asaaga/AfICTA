@@ -1,10 +1,10 @@
 :root {
-  --green-dark: #0a1230;
-  --green-primary: #16224f;
-  --green-medium: #1e2f6b;
-  --green-light: #eef1fa;
-  --gold: #c18b3fc5;
-  --gold-light: #f5e6c2;
+  --brand-dark: #0a1230;
+  --brand-primary: #16224f;
+  --brand-medium: #1e2f6b;
+  --brand-light: #eef1fa;
+  --brand-gold: #c18b3fc5;
+  --brand-gold-light: #f5e6c2;
   --silver: #aab4c8;
   --white: #ffffff;
   --gray-50: #f8faf8;
@@ -63,15 +63,15 @@ img {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   border-radius: 4px;
 }
 
 /* ── Buttons ── */
 .btn-green {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
-  border: 2px solid var(--green-primary);
+  border: 2px solid var(--brand-primary);
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
@@ -80,14 +80,14 @@ img {
   transition: var(--transition);
 }
 .btn-green:hover {
-  background: var(--green-dark);
-  border-color: var(--green-dark);
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
   color: var(--white);
 }
 .btn-outline-green {
   background: transparent;
-  color: var(--green-primary);
-  border: 2px solid var(--green-primary);
+  color: var(--brand-primary);
+  border: 2px solid var(--brand-primary);
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
@@ -96,13 +96,13 @@ img {
   transition: var(--transition);
 }
 .btn-outline-green:hover {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
 }
 .btn-gold {
-  background: var(--gold);
+  background: var(--brand-gold);
   color: var(--white);
-  border: 2px solid var(--gold);
+  border: 2px solid var(--brand-gold);
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
@@ -127,14 +127,14 @@ img {
 }
 .btn-outline-light:hover {
   background: var(--white);
-  color: var(--green-primary);
+  color: var(--brand-primary);
 }
 
 /* ═══════════════════════════════════
    TOP BAR
 ═══════════════════════════════════ */
 .topbar {
-  background: var(--green-dark);
+  background: var(--brand-dark);
   color: rgba(255, 255, 255, 0.8);
   padding: 0.45rem 0;
   font-size: 0.8rem;
@@ -154,7 +154,7 @@ img {
   transition: var(--transition);
 }
 .topbar-social:hover {
-  color: var(--gold);
+  color: var(--brand-gold);
 }
 
 /* ═══════════════════════════════════
@@ -162,7 +162,7 @@ img {
 ═══════════════════════════════════ */
 #mainNav {
   padding: 0;
-  border-bottom: 3px solid var(--green-primary);
+  border-bottom: 3px solid var(--brand-primary);
   z-index: 1030;
 }
 .navbar-brand {
@@ -174,17 +174,17 @@ img {
 }
 .brand-icon {
   font-size: 2rem;
-  color: var(--green-primary);
+  color: var(--brand-primary);
 }
 .brand-text {
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   font-weight: 800;
-  color: var(--green-dark);
+  color: var(--brand-dark);
   letter-spacing: -0.5px;
 }
 .brand-text span {
-  color: var(--gold);
+  color: var(--brand-gold);
 }
 
 .navbar-nav .nav-link {
@@ -205,13 +205,13 @@ img {
   left: 0.7rem;
   right: 0.7rem;
   height: 3px;
-  background: var(--green-primary);
+  background: var(--brand-primary);
   transform: scaleX(0);
   transition: transform var(--transition);
 }
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: var(--green-primary);
+  color: var(--brand-primary);
 }
 .navbar-nav .nav-link:hover::after,
 .navbar-nav .nav-link.active::after {
@@ -221,7 +221,7 @@ img {
 /* Dropdowns */
 .dropdown-menu {
   border: none;
-  border-top: 3px solid var(--green-primary);
+  border-top: 3px solid var(--brand-primary);
   border-radius: 0 0 var(--radius) var(--radius);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   padding: 0.5rem 0;
@@ -249,8 +249,8 @@ img {
   transition: var(--transition);
 }
 .dropdown-item:hover {
-  background: var(--green-light);
-  color: var(--green-primary);
+  background: var(--brand-light);
+  color: var(--brand-primary);
 }
 .dropdown-divider {
   border-color: var(--gray-100);
@@ -275,9 +275,9 @@ img {
 .page-hero {
   background: linear-gradient(
     135deg,
-    var(--green-dark) 0%,
-    var(--green-primary) 60%,
-    var(--green-medium) 100%
+    var(--brand-dark) 0%,
+    var(--brand-primary) 60%,
+    var(--brand-medium) 100%
   );
   padding: 5rem 0 4rem;
   position: relative;
@@ -305,7 +305,7 @@ img {
   max-width: 600px;
 }
 .breadcrumb-item a {
-  color: var(--gold);
+  color: var(--brand-gold);
 }
 .breadcrumb-item.active {
   color: rgba(255, 255, 255, 0.7);
@@ -348,7 +348,7 @@ img {
 }
 .hero-tag {
   display: inline-block;
-  background: var(--gold);
+  background: var(--brand-gold);
   color: var(--white);
   font-family: "Poppins", sans-serif;
   font-size: 0.75rem;
@@ -379,7 +379,7 @@ img {
   border: none;
 }
 .carousel-indicators .active {
-  background: var(--gold);
+  background: var(--brand-gold);
 }
 .carousel-control-prev,
 .carousel-control-next {
@@ -391,7 +391,7 @@ img {
    STATS BAR
 ═══════════════════════════════════ */
 .stats-bar {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   padding: 1.5rem 0;
 }
 .stat-item {
@@ -405,7 +405,7 @@ img {
   font-family: "Poppins", sans-serif;
   font-size: 2.2rem;
   font-weight: 800;
-  color: var(--gold);
+  color: var(--brand-gold);
   line-height: 1;
 }
 .stat-label {
@@ -427,12 +427,12 @@ img {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--brand-gold);
   margin-bottom: 0.4rem;
 }
 .section-title {
   font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--green-dark);
+  color: var(--brand-dark);
   line-height: 1.25;
   margin-bottom: 0;
 }
@@ -475,7 +475,7 @@ img {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
   font-size: 0.7rem;
   font-weight: 700;
@@ -498,7 +498,7 @@ img {
 .news-card-title {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--green-dark);
+  color: var(--brand-dark);
   margin-bottom: 0.6rem;
   line-height: 1.4;
 }
@@ -515,20 +515,22 @@ img {
   font-size: 0.82rem;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
-  color: var(--green-primary);
+  color: var(--brand-primary);
   margin-top: 1rem;
   transition: var(--transition);
 }
 .news-readmore:hover {
-  color: var(--gold);
+  color: var(--brand-gold);
   gap: 0.5rem;
 }
 
+/* overlay */
 .section-news,
 .section-about,
 .section-events,
 .section-members,
 .section-social-feeds,
+.content-section,
 .section-cta {
   background-color: rgba(255, 255, 255, 0.92);
 }
@@ -588,7 +590,7 @@ img {
 
 .feed-scroll-container::-webkit-scrollbar-thumb,
 .cards-scroll-containerpe::-webkit-scrollbar-thumb {
-  background: var(--gold);
+  background: var(--brand-gold);
   border-radius: 4px;
 }
 
@@ -653,7 +655,7 @@ img {
   position: absolute;
   bottom: -1.5rem;
   right: -1.5rem;
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
   padding: 1.25rem 1.5rem;
   border-radius: 10px;
@@ -679,11 +681,11 @@ img {
   gap: 0.6rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--green-dark);
+  color: var(--brand-dark);
 }
 .about-feature i {
   font-size: 1.2rem;
-  color: var(--green-primary);
+  color: var(--brand-primary);
   width: 1.5rem;
 }
 
@@ -691,7 +693,7 @@ img {
    EVENTS SECTION
 ═══════════════════════════════════ */
 .bg-light-green {
-  background: var(--green-light);
+  background: var(--brand-light);
 }
 
 .event-card {
@@ -709,7 +711,7 @@ img {
   transform: translateY(-3px);
 }
 .event-date-box {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
   border-radius: 8px;
   padding: 0.6rem 0.9rem;
@@ -731,7 +733,7 @@ img {
   font-size: 1.6rem;
   font-weight: 800;
   line-height: 1;
-  color: var(--gold);
+  color: var(--brand-gold);
 }
 .event-year {
   display: block;
@@ -748,13 +750,13 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--gold);
+  color: var(--brand-gold);
   margin-bottom: 0.3rem;
 }
 .event-title {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--green-dark);
+  color: var(--brand-dark);
   margin-bottom: 0.35rem;
   line-height: 1.4;
 }
@@ -767,14 +769,14 @@ img {
   font-size: 0.78rem;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
-  color: var(--green-primary);
+  color: var(--brand-primary);
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   transition: var(--transition);
 }
 .event-link:hover {
-  color: var(--gold);
+  color: var(--brand-gold);
 }
 
 /* ═══════════════════════════════════
@@ -832,21 +834,21 @@ img {
   border-radius: var(--radius);
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--green-primary);
+  color: var(--brand-primary);
   text-align: center;
   padding: 0 1rem;
   transition: var(--transition);
 }
 .member-logo-box:hover {
-  background: var(--green-light);
-  border-color: var(--green-primary);
+  background: var(--brand-light);
+  border-color: var(--brand-primary);
 }
 
 /* ═══════════════════════════════════
    SOCIAL FEED SECTION
 ═══════════════════════════════════ */
 .bg-deep-navy {
-  background: var(--green-dark);
+  background: var(--brand-dark);
 }
 .social-card {
   background: var(--white);
@@ -868,14 +870,14 @@ img {
   font-family: "Poppins", sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
-  color: var(--green-dark);
+  color: var(--brand-dark);
   margin: 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 .social-card-head h6 i {
-  color: var(--green-primary);
+  color: var(--brand-primary);
 }
 .social-follow-btn {
   font-family: "Poppins", sans-serif;
@@ -899,7 +901,7 @@ img {
 }
 .x-empty-state {
   height: 460px;
-  background: var(--green-dark);
+  background: var(--brand-dark);
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -931,7 +933,7 @@ img {
 }
 .fb-cover {
   height: 90px;
-  background: linear-gradient(135deg, var(--green-dark), var(--green-primary));
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
   position: relative;
 }
 .fb-avatar {
@@ -951,7 +953,7 @@ img {
 .fb-meta h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  color: var(--green-dark);
+  color: var(--brand-dark);
   margin-bottom: 0.15rem;
 }
 .fb-followers {
@@ -986,8 +988,8 @@ img {
   border-bottom: 2px solid transparent;
 }
 .fb-tabs span.active {
-  color: var(--green-primary);
-  border-color: var(--green-primary);
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
 }
 .fb-post {
   display: flex;
@@ -1005,7 +1007,7 @@ img {
 .fb-post-name {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--green-dark);
+  color: var(--brand-dark);
 }
 .fb-post-time {
   font-size: 0.72rem;
@@ -1018,7 +1020,7 @@ img {
   line-height: 1.55;
 }
 .fb-post-text a {
-  color: var(--green-primary);
+  color: var(--brand-primary);
   font-weight: 600;
 }
 
@@ -1056,7 +1058,7 @@ img {
 }
 .gallery-slide-caption span {
   display: inline-block;
-  background: var(--gold);
+  background: var(--brand-gold);
   font-family: "Poppins", sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
@@ -1093,7 +1095,7 @@ img {
 .gallery-scroll-panel-head h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  color: var(--green-dark);
+  color: var(--brand-dark);
   margin: 0;
   font-size: 0.95rem;
 }
@@ -1103,7 +1105,7 @@ img {
   border-radius: 50%;
   border: 1.5px solid var(--gray-100);
   background: var(--white);
-  color: var(--green-primary);
+  color: var(--brand-primary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1111,9 +1113,9 @@ img {
   transition: var(--transition);
 }
 .gallery-scroll-arrows button:hover {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
-  border-color: var(--green-primary);
+  border-color: var(--brand-primary);
 }
 .gallery-scroll-track {
   flex: 1;
@@ -1154,7 +1156,7 @@ img {
    NEWSLETTER CTA
 ═══════════════════════════════════ */
 .cta-block {
-  background: linear-gradient(135deg, var(--green-dark), var(--green-primary));
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
   border-radius: 14px;
   padding: 3rem 3.5rem;
   position: relative;
@@ -1187,14 +1189,14 @@ img {
 }
 .newsletter-form .form-control:focus {
   box-shadow: none;
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--brand-gold);
 }
 
 /* ═══════════════════════════════════
    FOOTER
 ═══════════════════════════════════ */
 .site-footer {
-  background: var(--green-dark);
+  background: var(--brand-dark);
   color: rgba(255, 255, 255, 0.75);
 }
 .footer-logo-text {
@@ -1205,7 +1207,7 @@ img {
   letter-spacing: -0.5px;
 }
 .footer-logo-text span {
-  color: var(--gold);
+  color: var(--brand-gold);
 }
 .footer-about {
   font-size: 0.875rem;
@@ -1218,7 +1220,7 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--gold);
+  color: var(--brand-gold);
   margin-bottom: 1rem;
 }
 .footer-links {
@@ -1235,7 +1237,7 @@ img {
   transition: var(--transition);
 }
 .footer-links a:hover {
-  color: var(--gold);
+  color: var(--brand-gold);
   padding-left: 4px;
 }
 .footer-contact {
@@ -1252,7 +1254,7 @@ img {
   margin-bottom: 0.55rem;
 }
 .footer-contact i {
-  color: var(--gold);
+  color: var(--brand-gold);
   font-size: 0.9rem;
   margin-top: 2px;
   flex-shrink: 0;
@@ -1274,7 +1276,7 @@ img {
   transition: var(--transition);
 }
 .footer-socials a:hover {
-  background: var(--gold);
+  background: var(--brand-gold);
   color: var(--white);
 }
 .footer-bottom {
@@ -1288,7 +1290,7 @@ img {
   transition: var(--transition);
 }
 .footer-bottom a:hover {
-  color: var(--gold);
+  color: var(--brand-gold);
 }
 
 /* ═══════════════════════════════════
@@ -1304,18 +1306,18 @@ img {
 .card-icon {
   width: 56px;
   height: 56px;
-  background: var(--green-light);
+  background: var(--brand-light);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: var(--green-primary);
+  color: var(--brand-primary);
   margin-bottom: 1rem;
   transition: var(--transition);
 }
 .feature-card:hover .card-icon {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
 }
 .feature-card {
@@ -1332,7 +1334,7 @@ img {
 }
 .feature-card h5 {
   font-size: 1rem;
-  color: var(--green-dark);
+  color: var(--brand-dark);
   margin-bottom: 0.5rem;
 }
 .feature-card p {
@@ -1349,7 +1351,7 @@ img {
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   transition: var(--transition);
-  border-left: 4px solid var(--green-primary);
+  border-left: 4px solid var(--brand-primary);
   padding: 1.5rem;
   display: flex;
   align-items: flex-start;
@@ -1363,14 +1365,14 @@ img {
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
   font-weight: 800;
-  color: var(--green-primary);
+  color: var(--brand-primary);
   opacity: 0.3;
   line-height: 1;
   min-width: 70px;
 }
 .archive-content h6 {
   font-size: 0.95rem;
-  color: var(--green-dark);
+  color: var(--brand-dark);
   margin-bottom: 0.4rem;
 }
 .archive-content p {
@@ -1387,14 +1389,14 @@ img {
 .archive-links a {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--green-primary);
-  background: var(--green-light);
+  color: var(--brand-primary);
+  background: var(--brand-light);
   border-radius: 4px;
   padding: 0.25rem 0.65rem;
   transition: var(--transition);
 }
 .archive-links a:hover {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
 }
 
@@ -1418,7 +1420,7 @@ img {
   border-bottom: none;
 }
 .benefit-list i {
-  color: var(--green-primary);
+  color: var(--brand-primary);
   font-size: 1.1rem;
   margin-top: 2px;
   flex-shrink: 0;
@@ -1434,7 +1436,7 @@ img {
 .form-label {
   font-weight: 600;
   font-size: 0.875rem;
-  color: var(--green-dark);
+  color: var(--brand-dark);
 }
 .form-control,
 .form-select {
@@ -1447,7 +1449,7 @@ img {
 }
 .form-control:focus,
 .form-select:focus {
-  border-color: var(--green-primary);
+  border-color: var(--brand-primary);
   box-shadow: 0 0 0 3px rgba(22, 34, 79, 0.14);
 }
 
@@ -1456,8 +1458,8 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: var(--green-light);
-  color: var(--green-dark);
+  background: var(--brand-light);
+  color: var(--brand-dark);
   border-radius: 5px;
   padding: 0.3rem 0.75rem;
   font-size: 0.8rem;
@@ -1466,13 +1468,13 @@ img {
   transition: var(--transition);
 }
 .nation-badge:hover {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
 }
 
 /* Table styles */
 .table-aficta thead th {
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
   font-family: "Poppins", sans-serif;
   font-size: 0.82rem;
@@ -1487,7 +1489,7 @@ img {
   vertical-align: middle;
 }
 .table-aficta tbody tr:hover td {
-  background: var(--green-light);
+  background: var(--brand-light);
 }
 
 /* Back to top */
@@ -1497,7 +1499,7 @@ img {
   right: 2rem;
   width: 44px;
   height: 44px;
-  background: var(--green-primary);
+  background: var(--brand-primary);
   color: var(--white);
   border: none;
   border-radius: 50%;
@@ -1511,7 +1513,7 @@ img {
   transition: var(--transition);
 }
 #backToTop:hover {
-  background: var(--gold);
+  background: var(--brand-gold);
 }
 #backToTop.visible {
   display: flex;
